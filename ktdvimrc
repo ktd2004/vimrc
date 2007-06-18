@@ -1,0 +1,155 @@
+" vim:set ft=vim ts=4 sw=4 sts=4 sta ai bs=2:
+
+" Color Scheme 설정
+colorscheme pablo
+
+
+" gui_win32에서 시스템 폰트/창크기/단축키를 설정한다.
+if has("gui_win32")
+	set guifont=굴림체:h10:cHANGEUL
+	set lines=80
+
+	" 시스템 메뉴를 동작시키는 맵핑.
+	map <C-k> :simalt ~x<CR>	"최대화 시키는 맵핑
+	map <C-j> :simalt ~r<CR>	"원래대로 복구하는 맵핑
+endif
+
+
+"초기에 파일 포맷을 도스로 설정.
+if has("unix")
+	set fileformat=unix
+else	" has("gui_win32")
+	set fileformat=dos
+endif
+
+
+"파일이름을 타이틀바에 넣는다.
+set title
+
+
+"gui용에서 각종 설정들. 예를 들면 T는 toolbar를 보여주는 옵션이다.
+"g : Grey menu items
+"r : 수직스크롤바
+"T : Toolbar
+"m : menu bar
+"t : tearoff menu
+if has("unix")
+	set guioptions=grLt
+elseif has("gui_win32")
+	set guioptions=grLt
+endif
+
+
+"입력모드로 들어갈때 영문으로 시작하게 하는 setting.
+set iminsert=0
+
+"검색모드에서 항상 영문으로 시작하게 하는 setting.
+set imsearch=-1
+
+" ESC를 눌렀을때 영문으로 설정하도록 한다.
+inoremap <ESC> <ESC>:set iminsert=0<CR>
+
+
+"입력모드에서 한글상태일때 커서의 색깔을 다르게 한다.
+highlight Cursor guibg=Red guifg=Black ctermbg=Red ctermfg=Black
+highlight CursorIM guibg=Blue guifg=NONE ctermbg=Blue ctermfg=NONE
+
+
+"검색시 찾은 단어를 heighting한다.
+set hlsearch
+
+
+"auto indent 설정
+set ai
+
+
+"{[(,)]}를 넣을 때 매치되는 곳으로 갔다가 온다.
+set matchtime=3
+set showmatch
+
+
+"command line의 줄수를 지정한다.
+set cmdheight=1
+
+
+"현재 디렉토리의 .vimrc파일을 실행할 수 있게 하기위해 사용.
+set exrc
+
+
+" C 파일의 형태를 지정해 주는 ktdc..
+ab ktdc /* vim:set ft=c ts=4 sw=4 sts=4 sta ai bs=2: */
+
+" CPP 파일의 형태를 지정해 주는 ktdcpp..
+ab ktdcpp /* vim:set ft=cpp ts=4 sw=4 sts=4 sta ai bs=2: */
+
+
+"vim에서 에러발생시 beep 대신에 Visual한 경고표시를 해주는 옵션.
+set visualbell
+
+
+"끝에 '~'가 붙은 backup파일을 생성하지 않도록 하는 옵션.
+"특별히 backup 파일이 필요한 경우가 없었던 것 같다.
+set nobackup
+
+
+"bdir : Backup Directory 설정. xxx~ 파일을 저장하기 위한 디렉토리.
+"dir : swap Directory 설정. xxx.swp 파일을 저장하기 위한 디렉토리.
+if has("unix")
+	set bdir=.,~,~/tmp,$TEMP,$TMP
+	set dir=.,~,~/tmp,$TEMP,$TMP
+else
+	" backup 파일인 xxx~ 파일이 현재 디렉토리에 생성되니까 보기싫다.
+	" 현재 디렉토리를 bdir 리스트에서 제거했음.
+	set bdir=c:/tmp,c:/temp,$TEMP,$TMP
+
+	" swap 파일을 생성하는 dir 리스트에서 현재 디렉토리를 제거했음.
+	" 윈도우에서 사용할 때 탐색기에 '*.swp'파일이 생성되었다가 사라지면서
+	" "context menu" 창이 닫겨버리는 문제가 있어서 더욱 더 필요없을 것 같다.
+	set dir=c:/tmp,c:/temp,$TEMP,$TMP
+endif
+
+
+"항상 파일을 읽어들일때 이전에 종료되었던 corsor 위치에서 시작하도록 한다.
+"커서 위치 기억하는 방법중 다음과 같은 방법도 있다.
+"------------------------------------------------------------------------
+"set viewoptions=cursor
+"au BufWinLeave *.c,*.cc,*.h,*.html,*.php,Makefile,*.mak mkview
+"au BufWinEnter *.c,*.cc,*.h,*.html,*.php,Makefile.*.mak silent loadview
+"------------------------------------------------------------------------
+if has("autocmd")
+	" When editing a file, always jump to the last cursor position
+	autocmd BufReadPost *
+		\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+		\ exe "normal g'\"" |
+		\ endif
+endif
+
+
+"마우스로 붙여넣기를 할 때 autoindent나 textwidth등이 작동해 버려서 원하지
+"않는 들여쓰기가 되는 것을 막는 경우에 사용한다.
+"붙여넣기 하기전에 :set paste, 붙여넣기 한후에 :set nopaste
+"pastetoggle=<ins>로 설정하면 <ins>키를 누를때마다 이 상태가 toggle된다.
+set pastetoggle=<ins>
+
+
+"gui_win32에 diff 모드로 open할 경우에 창을 최대화 한다.
+"subversion의 diff 모드에서 사용하기위해서 설정했음.
+"참고 : http://www.vim.org/tips/tip.php?tip_id=88
+if has("gui_win32") && &diff
+	au GUIEnter * simalt ~x
+endif
+
+
+"gui_win32일 때 Alt_Space 키가 시스템 메뉴로 동작하도록 한다.
+"참고 : http://www.vim.org/tips/tip.php?tip_id=645
+if has("gui_win32")
+	set winaltkeys=yes 
+endif
+
+
+"초기에 number 기능을 disable시키도록 하자.
+set nonu
+
+
+" python 스트립트 파일을 위해 정의함.
+au BufNewFile,BufRead *.py set ts=4 sw=4 sts=4 sta ai bs=2 et
