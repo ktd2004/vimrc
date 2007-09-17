@@ -1,7 +1,15 @@
 " vim:set ft=vim ts=4 sw=4 sts=4 sta ai bs=2:
 
 " Color Scheme 설정
-colorscheme pablo
+if has("unix")
+	colorscheme ron
+else
+	if has("gui_running")
+		colorscheme pablo
+	else
+		colorscheme ron
+	endif
+endif
 
 
 " gui_win32에서 시스템 폰트/창크기/단축키를 설정한다.
@@ -153,3 +161,41 @@ set nonu
 
 " python 스트립트 파일을 위해 정의함.
 au BufNewFile,BufRead *.py set ts=4 sw=4 sts=4 sta ai bs=2 et
+
+
+
+set fileencoding=korea
+
+"[20041113]
+""http://bbs.kldp.org/viewtopic.php?t=46594
+"다른 로케일의 파일을 열면, "변환되었습니다."라고 나온다.
+""저장할 때 읽은 로케일로 저장된다.
+if v:lang =~ "^ko"
+	set encoding=cp949
+	set fileencodings=cp949,utf-8
+	set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*
+elseif v:lang =~ "^ja_JP"
+	set fileencodings=euc-jp
+	set guifontset=-misc-fixed-medium-r-normal--14-*-*-*-*-*-*-*
+elseif v:lang =~ "^zh_TW"
+	set fileencodings=big5
+	set guifontset=-sony-fixed-medium-r-normal--16-150-75-75-c-80-iso8859-1,-taipei-fixed-medium-r-normal--16-150-75-75-c-160-big5-0
+elseif v:lang =~ "^zh_CN"
+	set fileencodings=gb2312
+	set guifontset=*-r-*
+endif
+
+
+if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+	set encoding=utf-8
+	set fileencodings=utf-8,cp949
+endif 
+
+
+if !has("unix")
+	set fencs=cp949,ucs-bom,utf-8
+else
+	set fencs=euc-kr,utf-8
+endif
+
+set termencoding=euc-kr
