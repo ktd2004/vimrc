@@ -199,3 +199,7 @@ else
 endif
 
 set termencoding=euc-kr
+
+
+" 각 파일에 존재하는 modeline을 활성화(사용)하기 위해 정의.
+set modeline
