@@ -101,4 +101,16 @@ if version >= 508 || !exists("did_acedb_syn_inits")
   delcommand HiLink
 endif
 
+
 let b:current_syntax = "moin"
+
+
+if has("unix")
+	colorscheme ron
+else
+	if has("gui_running")
+		colorscheme pablo
+	else
+		colorscheme ron
+	endif
+endif
