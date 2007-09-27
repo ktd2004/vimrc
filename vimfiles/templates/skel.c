@@ -1,21 +1,9 @@
-/*
- * $Id$
- */
-
+/*** DELETE ME :  auto make template file ****/
+/* vim:set ft=c ts=4 sw=4 sts=4 sta ai si ci bs=2: */
 #include <stdio.h>
 #include "@FILE@.h"
 
-/* Function int main(int argc, char **argv) {{{ */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-
-
 	return 0;
-} /* }}} */
-
-
-/* Modeline for ViM {{{
- * vim:set ts=4:
- * vim600:fdm=marker fdl=0 fdc=3:
- * }}} */
-
+}
