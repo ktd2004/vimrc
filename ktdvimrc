@@ -68,7 +68,7 @@ set hlsearch
 
 
 "auto indent 설정
-set ai
+set autoindent smartindent smarttab
 
 
 "{[(,)]}를 넣을 때 매치되는 곳으로 갔다가 온다.
@@ -85,10 +85,10 @@ set exrc
 
 
 " C 파일의 형태를 지정해 주는 ktdc..
-ab ktdc /* vim:set ft=c ts=4 sw=4 sts=4 sta ai bs=2: */
+ab ktdc /* vim:set ft=c ts=4 sw=4 sts=4 sta ai si cin bs=2: */
 
 " CPP 파일의 형태를 지정해 주는 ktdcpp..
-ab ktdcpp /* vim:set ft=cpp ts=4 sw=4 sts=4 sta ai bs=2: */
+ab ktdcpp /* vim:set ft=cpp ts=4 sw=4 sts=4 sta ai si cin bs=2: */
 
 
 "vim에서 에러발생시 beep 대신에 Visual한 경고표시를 해주는 옵션.
@@ -160,7 +160,8 @@ set nonu
 
 
 " python 스트립트 파일을 위해 정의함.
-au BufNewFile,BufRead *.py set ts=4 sw=4 sts=4 sta ai bs=2 et
+au BufNewFile,BufRead *.py set ts=4 sw=4 sts=4 sta ai si bs=2 et
+au BufNewFile,BufRead *.c,*.cpp,*.h set sta ai si cin
 
 
 
