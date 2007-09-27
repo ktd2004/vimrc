@@ -53,7 +53,7 @@ fun! LoadTemplateFile()
 		" Template not found
 	endif
 
-	let date = strftime("%Y%m%d_%H%M%S_%Z")
+	let date = strftime("%Y%m%d_%H%M%S")
 	let year = strftime("%Y")
 	let cwd = getcwd()
 	let lastdir = substitute(cwd, ".*/", "", "g")
