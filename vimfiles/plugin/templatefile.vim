@@ -53,14 +53,14 @@ fun! LoadTemplateFile()
 		" Template not found
 	endif
 
-	let date = strftime("%Y%m%d_%H%M%S")
+	let date = strftime("%Y%m%d_%H%M%S_%Z")
 	let year = strftime("%Y")
 	let cwd = getcwd()
 	let lastdir = substitute(cwd, ".*/", "", "g")
 	let myfile = expand("%:t:r")
 	let myfile_ext = expand("%")
-	let inc_gaurd = substitute(myfile, "\\.", "_", "g")
-	let inc_gaurd = date . "__" . toupper(inc_gaurd)
+	let inc_gaurd = substitute(myfile_ext, "\\.", "_", "g")
+	let inc_gaurd = toupper(inc_gaurd) . "__" . date
 	silent! execute "%s/@DATE@/" .  date . "/g"
 	silent! execute "%s/@YEAR@/" .  year . "/g"
 	silent! execute "%s/@LASTDIR@/" .  lastdir . "/g"
