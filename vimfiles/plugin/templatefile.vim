@@ -59,7 +59,8 @@ fun! LoadTemplateFile()
 	let lastdir = substitute(cwd, ".*/", "", "g")
 	let myfile = expand("%:t:r")
 	let myfile_ext = expand("%")
-	let inc_gaurd = substitute(myfile_ext, "\\.", "_", "g")
+	let myfile_e = expand("%:t")
+	let inc_gaurd = substitute(myfile_e, "\\.", "_", "g")
 	let inc_gaurd = toupper(inc_gaurd) . "__" . date
 	silent! execute "%s/@DATE@/" .  date . "/g"
 	silent! execute "%s/@YEAR@/" .  year . "/g"
