@@ -209,3 +209,8 @@ set modeline
 " doxygen syntax를 위해 정의.
 au! Syntax {cpp,c,idl}
 au Syntax {cpp,c,idl} runtime syntax/doxygen.vim
+
+
+
+"Tag list를 위한 키맵핑
+:nnoremap <silent> <F7> :TlistToggle<CR>
