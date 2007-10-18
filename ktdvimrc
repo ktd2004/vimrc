@@ -211,6 +211,8 @@ au! Syntax {cpp,c,idl}
 au Syntax {cpp,c,idl} runtime syntax/doxygen.vim
 
 
+"TagExplorer를 위한 키맵핑
+nnoremap <silent> <F5> :TagExplorer<CR> 
 
 "Tag list를 위한 키맵핑
-:nnoremap <silent> <F7> :TlistToggle<CR>
+nnoremap <silent> <F6> :TlistToggle<CR>
