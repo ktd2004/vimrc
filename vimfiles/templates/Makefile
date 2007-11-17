@@ -1,61 +1,68 @@
-# Makefile for creating distribution
-# Type 'make dist' for create tar-gziped archiv. 
+## vim:set ft=make ts=4 sw=4 sts=4 sta ai noet:
 
-#
-# Author: Lubomir Host 'rajo' <host8@kepler.fmph.uniba.sk
-#
-
-# $Id$
-
-PACKAGE = test
-VERSION = 1.0
-
-DISTFILES = test \
-			test/test.c
+TARGET :=
 
 
-########################################
-# Don't change anything below this line!
-# 
-
-#TAR = gtar
-TAR = tar
-ZIP = zip
-ZIP_ENV = -r9
-GZIP_ENV = --best
+SRCS :=
+OBJS := $(SRCS:.c=.o)
+DEPS := $(SRCS:.c=.d)
 
 
-srcdir = .
-distdir = $(PACKAGE)-$(VERSION)
-top_distdir = $(distdir)
-top_builddir = .
-
-dist: distdir
-	GZIP=$(GZIP_ENV) $(TAR) chozf $(distdir).tar.gz $(distdir)
-	ZIP=$(ZIP_ENV) $(ZIP) $(distdir).zip $(distdir)
-	-rm -rf $(distdir)
-
-dist-all: distdir
-	GZIP=$(GZIP_ENV) $(TAR) chozf $(distdir).tar.gz $(distdir)
-	ZIP=$(ZIP_ENV) $(ZIP) $(distdir).zip $(distdir)
-	-rm -rf $(distdir)
-
-distdir: $(DISTFILES)
-	-rm -rf $(distdir)
-	mkdir $(distdir)
-	@here=`cd $(top_builddir) && pwd`; \
-	top_distdir=`cd $(distdir) && pwd`; \
-	distdir=`cd $(distdir) && pwd`;
-	@FILES=`echo "$(DISTFILES)" | awk 'BEGIN{RS=" "}{print}' | sort -u`; \
-	for file in $$FILES; do \
-	  d=$(srcdir); \
-	  if test -d $$d/$$file; then \
-	    mkdir $(distdir)/$$file; \
-	  else \
-	    test -f $(distdir)/$$file \
-	    || ln $$d/$$file $(distdir)/$$file 2> /dev/null \
-	    || cp -p $$d/$$file $(distdir)/$$file || :; \
-	  fi; \
-	done
+CC := gcc
+CFLAGS := -Wall -O2 -I.
+LDFLAGS :=
 
 
+
+all : $(TARGET)
+
+
+
+$(TARGET) : $(OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
+
+.c.o :
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(MAKECMDGOALS),mrproper)
+ifneq ($(MAKECMDGOALS),doc)
+ifneq ($(MAKECMDGOALS),unittest)
+sinclude $(DEPS)
+endif
+endif
+endif
+endif
+
+
+
+.PHONY : clean mrproper doc
+clean :
+	rm -f $(OBJS)
+
+mrproper : clean
+	rm -f $(TARGET) $(DEPS)
+
+
+
+%.d : %.c
+	@set -e; b=`basename $< .c`; d=`dirname $<`; rm -f $@;  \
+	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
+	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.d : ,g" < $@.$$$$ > $@; \
+	[ -s $@ ] && rm -f $@.$$$$
+
+
+
+doc :
+	@-rm -fr html
+	@doxygen DOCUMENT/Doxyfile
+
+
+
+## unit test를 수행한다.
+unittest :
+	@TEST_DIR=`find . -type d -name "unittest" -print`; \
+	for tdir in $${TEST_DIR}; do make -C $${tdir} || exit 1; done;  \
+	for tdir in $${TEST_DIR}; do make -C $${tdir} run; done
