@@ -6,6 +6,7 @@ TARGET :=
 SRCS :=
 OBJS := $(SRCS:.c=.o)
 DEPS := $(SRCS:.c=.d)
+CFGS :=
 
 
 CC := gcc
@@ -28,6 +29,7 @@ $(TARGET) : $(OBJS)
 
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(MAKECMDGOALS),mrproper)
+ifneq ($(MAKECMDGOALS),distclean)
 ifneq ($(MAKECMDGOALS),doc)
 ifneq ($(MAKECMDGOALS),unittest)
 sinclude $(DEPS)
@@ -35,15 +37,27 @@ endif
 endif
 endif
 endif
+endif
 
 
 
-.PHONY : clean mrproper doc
+.PHONY : clean mrproper distclean doc
 clean :
-	rm -f $(OBJS)
+	-@rm -f $(OBJS) $(DEPS) $(TARGET)
+	-@find . \( -name '*.[oas]' -o -name '*.d' -o -name '*.d.*' \) \
+				-type f -print | xargs rm -f
 
 mrproper : clean
-	rm -f $(TARGET) $(DEPS)
+	-@rm -f $(CFGS)
+	-@find . \( -name tags -o -name cscope.out -o -name cscope.files \) \
+				-type f -print | xargs rm -f
+
+distclean : mrproper
+	-@find . \( -name '*.orig' -o -name '*.rej' -o -name '*~' \
+				-o -name '*.bak' -o -name '#*#' -o -name '.*.orig' \
+				-o -name '.*.rej' -o -size 0 \
+				-o -name '*%' -o -name 'core' \) \
+				-type f -print | xargs rm -f
 
 
 
