@@ -4,14 +4,21 @@ TARGET :=
 
 
 SRCS :=
-OBJS := $(SRCS:.c=.o)
-DEPS := $(SRCS:.c=.d)
 CFGS :=
 
 
 CC := gcc
 CFLAGS := -Wall -O2 -I.
 LDFLAGS :=
+
+
+## =============================================
+
+
+CSRCS := $(filter %.c, $(SRCS))
+CPPSRCS := $(filter %.cpp, $(SRCS))
+OBJS := $(CSRCS:.c=.o) $(CPPSRCS:.cpp=.o)
+DEPS := $(CSRCS:.c=.d) $(CPPSRCS:.cpp=.d)
 
 
 
@@ -23,6 +30,9 @@ $(TARGET) : $(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
 .c.o :
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+.cpp.o :
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 
@@ -63,6 +73,12 @@ distclean : mrproper
 
 %.d : %.c
 	@set -e; b=`basename $< .c`; d=`dirname $<`; rm -f $@;  \
+	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
+	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.d : ,g" < $@.$$$$ > $@; \
+	[ -s $@ ] && rm -f $@.$$$$
+
+%.d : %.cpp
+	@set -e; b=`basename $< .cpp`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
 	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.d : ,g" < $@.$$$$ > $@; \
 	[ -s $@ ] && rm -f $@.$$$$
