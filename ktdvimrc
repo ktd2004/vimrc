@@ -90,6 +90,9 @@ ab ktdc /* vim:set ft=c ts=4 sw=4 sts=4 sta ai si cin bs=2: */
 " CPP 파일의 형태를 지정해 주는 ktdcpp..
 ab ktdcpp /* vim:set ft=cpp ts=4 sw=4 sts=4 sta ai si cin bs=2: */
 
+" Moin 파일의 형태를 지정해 주는 ktdcpp..
+ab ktdmoin ## vim:set ft=moin ts=4 sw=4 sts=4 sta ai et:
+
 
 "vim에서 에러발생시 beep 대신에 Visual한 경고표시를 해주는 옵션.
 set visualbell
