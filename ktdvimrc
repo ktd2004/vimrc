@@ -219,3 +219,7 @@ nnoremap <silent> <F5> :TagExplorer<CR>
 
 "Tag list를 위한 키맵핑
 nnoremap <silent> <F6> :TlistToggle<CR>
+
+
+"검색시에 검색할 단어를 하나씩 완성해가도록 한다.
+set incsearch
