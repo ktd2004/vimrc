@@ -223,3 +223,7 @@ nnoremap <silent> <F6> :TlistToggle<CR>
 
 "검색시에 검색할 단어를 하나씩 완성해가도록 한다.
 set incsearch
+
+
+"항상 파일에 대한 정보를 화면 하단에 표시하도록 한다.
+set laststatus=2
