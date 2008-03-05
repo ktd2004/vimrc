@@ -85,23 +85,26 @@ set exrc
 
 
 " C 파일의 형태를 지정해 주는 ktdc..
-ab ktdc /* vim:set ft=c ts=4 sw=4 sts=4 sta ai si cin bs=2: */
+ab ktdc /* vim:set ft=c ts=4 sw=4 sts=4 sta ai si cin bs=2 noet: */
 
 " CPP 파일의 형태를 지정해 주는 ktdcpp..
-ab ktdcpp /* vim:set ft=cpp ts=4 sw=4 sts=4 sta ai si cin bs=2: */
+ab ktdcpp /* vim:set ft=cpp ts=4 sw=4 sts=4 sta ai si cin bs=2 noet: */
 
 " Moin 파일의 형태를 지정해 주는 ktdcpp..
-ab ktdmoin ## vim:set ft=moin ts=4 sw=4 sts=4 sta ai et:
+ab ktdmoin ## vim:set ft=moin ts=4 sw=4 sts=4 sta ai si bs=2 et:
 
 
 " XML 파일의 형태를 지정해 주는 ktdxml ....
-ab ktdxml <!-- vim:set ft=xml ts=4 sw=4 sts=4 sta ai bs=2: -->
+ab ktdxml <!-- vim:set ft=xml ts=4 sw=4 sts=4 sta ai si bs=2 noet: -->
 
 " XSL 파일의 형태를 지정해 주는 ktdxslt
-ab ktdxslt <!-- vim:set ft=xslt ts=4 sw=4 sts=4 sta ai bs=2: -->
+ab ktdxslt <!-- vim:set ft=xslt ts=4 sw=4 sts=4 sta ai si bs=2 noet: -->
 
 " DocBook 문서를 위한 ktddk
-ab ktddb <!-- vim:set ft=docbk ts=4 sw=4 sts=4 sta ai bs=2: -->
+ab ktddb <!-- vim:set ft=docbk ts=4 sw=4 sts=4 sta ai si bs=2 noet: -->
+
+" shell script를 위한 ktdsh
+ab ktdsh ## vim:set ft=sh ts=4 sw=4 sts=4 sta ai si bs=2 noet:
 
 
 "vim에서 에러발생시 beep 대신에 Visual한 경고표시를 해주는 옵션.
@@ -237,3 +240,7 @@ set incsearch
 
 "항상 파일에 대한 정보를 화면 하단에 표시하도록 한다.
 set laststatus=2
+
+
+"현재 라인에 밑줄을 그어준다. 속도가 느려지는 문제가 있음.
+set cursorline
