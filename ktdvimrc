@@ -14,7 +14,8 @@ endif
 
 " gui_win32에서 시스템 폰트/창크기/단축키를 설정한다.
 if has("gui_win32")
-	set guifont=굴림체:h10:cHANGEUL
+	"set guifont=굴림체:h10:cHANGEUL
+	set guifont=나눔고딕코딩:h10:cHANGEUL
 	set lines=80
 
 	" 시스템 메뉴를 동작시키는 맵핑.
@@ -176,8 +177,8 @@ set nonu
 
 
 " python 스트립트 파일을 위해 정의함.
-au BufNewFile,BufRead *.py set ts=4 sw=4 sts=4 sta ai si bs=2 et
-au BufNewFile,BufRead *.c,*.cpp,*.h set sta ai si cin
+au BufNewFile,BufRead *.py,*.pyw set ts=4 sw=4 sts=4 sta ai si bs=2 et
+au BufNewFile,BufRead *.c,*.cpp,*.h,*.hpp set ts=4 sw=4 sts=4 sta ai si cin
 
 
 
