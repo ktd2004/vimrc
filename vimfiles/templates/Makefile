@@ -8,7 +8,7 @@ CFGS :=
 
 
 CC := gcc
-CFLAGS := -Wall -W -O2 -I.
+CFLAGS := -Wall -Wextra -O2 -I.
 LDFLAGS :=
 
 
