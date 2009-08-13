@@ -245,3 +245,7 @@ set laststatus=2
 
 "현재 라인에 밑줄을 그어준다. 속도가 느려지는 문제가 있음.
 "set cursorline
+
+
+" EX 모드에서 자동 완성 기능의 shell의 것과 같도록 한다.
+set wildmode=longest,list
