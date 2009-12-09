@@ -98,6 +98,9 @@ ab ktdmoin ## vim:set ft=moin ts=4 sw=4 sts=4 sta ai si bs=2 et:
 " XML 파일의 형태를 지정해 주는 ktdxml ....
 ab ktdxml <!-- vim:set ft=xml ts=2 sw=2 sts=2 sta ai si bs=2 et: -->
 
+" XML 파일의 형태를 지정해 주는 ktdxml ....
+ab ktdhtml <!-- vim:set ft=html ts=2 sw=2 sts=2 sta ai si bs=2 et: -->
+
 " XSL 파일의 형태를 지정해 주는 ktdxslt
 ab ktdxslt <!-- vim:set ft=xslt ts=2 sw=2 sts=2 sta ai si bs=2 et: -->
 
@@ -245,6 +248,12 @@ set laststatus=2
 
 "현재 라인에 밑줄을 그어준다. 속도가 느려지는 문제가 있음.
 "set cursorline
+
+
+filetype plugin on
+if has("unix")
+	set tags+=/usr/include/tags
+endif
 
 
 " EX 모드에서 자동 완성 기능의 shell의 것과 같도록 한다.
