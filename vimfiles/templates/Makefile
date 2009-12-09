@@ -7,12 +7,33 @@ SRCS :=
 CFGS :=
 
 
-CC := gcc
+CROSS_TOOL :=
 CFLAGS := -Wall -Wextra -O2 -I.
 LDFLAGS :=
 
 
+ifdef V
+	ifeq ("$(origin V)", "command line")
+		BUILD_VERBOSE = $(V)
+		Q =
+	endif
+endif
+
+ifndef BUILD_VERBOSE
+	BUILD_VERBOSE = 0
+	Q = @
+endif
+
+export BUILD_VERBOSE Q
+
+
 ## =============================================
+
+AS = $(CROSS_TOOL)as
+CC = $(CROSS_TOOL)gcc
+LD = $(CROSS_TOOL)ld
+OD = $(CROSS_TOOL)objdump
+OC = $(CROSS_TOOL)objcopya
 
 
 CSRCS := $(filter %.c, $(SRCS))
@@ -27,13 +48,22 @@ all : $(TARGET)
 
 
 $(TARGET) : $(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
+ifeq ($(BUILD_VERBOSE),0)
+	@echo "Linking.......	[$@]" 
+endif
+	$(Q)$(CC) -o $@ $(CFLAGS) $^ $(LDFLAGS)
 
 .c.o :
-	$(CC) $(CFLAGS) -c -o $@ $<
+ifeq ($(BUILD_VERBOSE),0)
+	@echo "Compiling.....	[$<]" 
+endif
+	$(Q)$(CC) $(CFLAGS) -c -o $@ $<
 
 .cpp.o :
-	$(CC) $(CFLAGS) -c -o $@ $<
+ifeq ($(BUILD_VERBOSE),0)
+	@echo "Compiling.....	[$<]" 
+endif
+	$(Q)$(CC) $(CFLAGS) -c -o $@ $<
 
 
 
@@ -72,13 +102,19 @@ distclean : mrproper
 
 
 %.d : %.c
-	@set -e; b=`basename $< .c`; d=`dirname $<`; rm -f $@;  \
+ifeq ($(BUILD_VERBOSE),0)
+	@echo "Making dep.....	[$<]" 
+endif
+	$(Q)set -e; b=`basename $< .c`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
 	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.d : ,g" < $@.$$$$ > $@; \
 	[ -s $@ ] && rm -f $@.$$$$
 
 %.d : %.cpp
-	@set -e; b=`basename $< .cpp`; d=`dirname $<`; rm -f $@;  \
+ifeq ($(BUILD_VERBOSE),0)
+	@echo "Making dep.....	[$<]" 
+endif
+	$(Q)set -e; b=`basename $< .cpp`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
 	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.d : ,g" < $@.$$$$ > $@; \
 	[ -s $@ ] && rm -f $@.$$$$
