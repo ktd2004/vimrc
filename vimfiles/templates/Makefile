@@ -95,7 +95,7 @@ mrproper : clean
 distclean : mrproper
 	-@find . \( -name '*.orig' -o -name '*.rej' -o -name '*~' \
 				-o -name '*.bak' -o -name '#*#' -o -name '.*.orig' \
-				-o -name '*.org' -o -name '.*.rej' -o -size 0 \
+				-o -name '*.org' -o -name '.*.rej' \
 				-o -name '*%' -o -name 'core' \) \
 				-type f -print | xargs rm -f
 
