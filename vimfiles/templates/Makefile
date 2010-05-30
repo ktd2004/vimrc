@@ -38,8 +38,9 @@ OC = $(CROSS_TOOL)objcopya
 
 CSRCS := $(filter %.c, $(SRCS))
 CPPSRCS := $(filter %.cpp, $(SRCS))
-OBJS := $(CSRCS:.c=.o) $(CPPSRCS:.cpp=.o)
-DEPS := $(CSRCS:.c=.d) $(CPPSRCS:.cpp=.d)
+CCSRCS := $(filter %.cc, $(SRCS))
+OBJS := $(CSRCS:.c=.o) $(CPPSRCS:.cpp=.o) $(CCSRCS:.cc=.o)
+DEPS := $(CSRCS:.c=.d) $(CPPSRCS:.cpp=.d) $(CCSRCS:.cc=.d)
 
 
 
@@ -60,6 +61,12 @@ endif
 	$(Q)$(CC) $(CFLAGS) -c -o $@ $<
 
 .cpp.o :
+ifeq ($(BUILD_VERBOSE),0)
+	@echo "Compiling.....	[$<]" 
+endif
+	$(Q)$(CC) $(CFLAGS) -c -o $@ $<
+
+.cc.o :
 ifeq ($(BUILD_VERBOSE),0)
 	@echo "Compiling.....	[$<]" 
 endif
@@ -115,6 +122,15 @@ ifeq ($(BUILD_VERBOSE),0)
 	@echo "Making dep.....	[$<]" 
 endif
 	$(Q)set -e; b=`basename $< .cpp`; d=`dirname $<`; rm -f $@;  \
+	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
+	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.d : ,g" < $@.$$$$ > $@; \
+	[ -s $@ ] && rm -f $@.$$$$
+
+%.d : %.cc
+ifeq ($(BUILD_VERBOSE),0)
+	@echo "Making dep.....	[$<]" 
+endif
+	$(Q)set -e; b=`basename $< .cc`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
 	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.d : ,g" < $@.$$$$ > $@; \
 	[ -s $@ ] && rm -f $@.$$$$
