@@ -110,6 +110,9 @@ ab ktddb <!-- vim:set ft=docbkxml ts=2 sw=2 sts=2 sta ai si bs=2 et: -->
 " shell script를 위한 ktdsh
 ab ktdsh ## vim:set ft=sh ts=4 sw=4 sts=4 sta ai si bs=2 noet:
 
+" .proto 파일을 위한 ktdsh
+ab ktdproto // vim:set ft=proto ts=2 sw=2 sts=2 sta ai si bs=2 et:
+
 
 "vim에서 에러발생시 beep 대신에 Visual한 경고표시를 해주는 옵션.
 set visualbell
@@ -182,6 +185,9 @@ set nonu
 " python 스트립트 파일을 위해 정의함.
 au BufNewFile,BufRead *.py,*.pyw set ts=4 sw=4 sts=4 sta ai si bs=2 et
 au BufNewFile,BufRead *.c,*.cpp,*.h,*.hpp set ts=4 sw=4 sts=4 sta ai si cin
+augroup filetype
+  au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
 
 
 
