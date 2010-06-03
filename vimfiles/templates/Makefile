@@ -33,7 +33,7 @@ AS = $(CROSS_TOOL)as
 CC = $(CROSS_TOOL)gcc
 LD = $(CROSS_TOOL)ld
 OD = $(CROSS_TOOL)objdump
-OC = $(CROSS_TOOL)objcopya
+OC = $(CROSS_TOOL)objcopy
 
 
 CSRCS := $(filter %.c, $(SRCS))
