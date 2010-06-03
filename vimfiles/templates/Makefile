@@ -32,6 +32,7 @@ export BUILD_VERBOSE Q
 
 AS = $(CCACHE) $(CROSS_TOOL)as
 CC = $(CCACHE) $(CROSS_TOOL)gcc
+CXX = $(CCACHE) $(CROSS_TOOL)g++
 LD = $(CCACHE) $(CROSS_TOOL)ld
 OD = $(CCACHE) $(CROSS_TOOL)objdump
 OC = $(CCACHE) $(CROSS_TOOL)objcopy
