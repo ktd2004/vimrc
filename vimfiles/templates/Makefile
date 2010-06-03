@@ -37,10 +37,10 @@ OC = $(CROSS_TOOL)objcopya
 
 
 CSRCS := $(filter %.c, $(SRCS))
-CPPSRCS := $(filter %.cpp, $(SRCS))
+CXXSRCS := $(filter %.cpp, $(SRCS))
 CCSRCS := $(filter %.cc, $(SRCS))
-OBJS := $(CSRCS:.c=.o) $(CPPSRCS:.cpp=.o) $(CCSRCS:.cc=.o)
-DEPS := $(CSRCS:.c=.d) $(CPPSRCS:.cpp=.d) $(CCSRCS:.cc=.d)
+OBJS := $(CSRCS:.c=.o) $(CXXSRCS:.cpp=.o) $(CCSRCS:.cc=.o)
+DEPS := $(CSRCS:.c=.d) $(CXXSRCS:.cpp=.d) $(CCSRCS:.cc=.d)
 
 
 
