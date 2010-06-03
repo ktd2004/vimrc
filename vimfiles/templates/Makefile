@@ -7,6 +7,7 @@ SRCS :=
 CFGS :=
 
 
+CCACHE :=
 CROSS_TOOL :=
 CFLAGS := -Wall -Wextra -O2 -I.
 LDFLAGS :=
@@ -29,11 +30,11 @@ export BUILD_VERBOSE Q
 
 ## =============================================
 
-AS = $(CROSS_TOOL)as
-CC = $(CROSS_TOOL)gcc
-LD = $(CROSS_TOOL)ld
-OD = $(CROSS_TOOL)objdump
-OC = $(CROSS_TOOL)objcopy
+AS = $(CCACHE) $(CROSS_TOOL)as
+CC = $(CCACHE) $(CROSS_TOOL)gcc
+LD = $(CCACHE) $(CROSS_TOOL)ld
+OD = $(CCACHE) $(CROSS_TOOL)objdump
+OC = $(CCACHE) $(CROSS_TOOL)objcopy
 
 
 CSRCS := $(filter %.c, $(SRCS))
