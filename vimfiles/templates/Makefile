@@ -7,8 +7,7 @@ SRCS :=
 CFGS :=
 
 
-CCACHE :=
-CROSS_TOOL :=
+CROSS_COMPILE ?=
 CFLAGS := -Wall -Wextra -O2 -I.
 LDFLAGS :=
 
@@ -30,12 +29,21 @@ export BUILD_VERBOSE Q
 
 ## =============================================
 
-AS = $(CCACHE) $(CROSS_TOOL)as
-CC = $(CCACHE) $(CROSS_TOOL)gcc
-CXX = $(CCACHE) $(CROSS_TOOL)g++
-LD = $(CCACHE) $(CROSS_TOOL)ld
-OD = $(CCACHE) $(CROSS_TOOL)objdump
-OC = $(CCACHE) $(CROSS_TOOL)objcopy
+HOSTCC	= gcc
+HOSTCXX	= g++
+
+AS	= $(CROSS_COMPILE)as
+CC	= $(CROSS_COMPILE)gcc
+CXX	= $(CROSS_COMPILE)g++
+CPP = $(CC) -E
+LD	= $(CROSS_COMPILE)ld
+OD	= $(CROSS_COMPILE)objdump
+OC	= $(CROSS_COMPILE)objcopy
+
+
+export HOSTCC HOSTCXX
+export CROSS_COMPILE
+export AS CC CXX CPP LD OD OC
 
 
 CSRCS := $(filter %.c, $(SRCS))
@@ -66,13 +74,13 @@ endif
 ifeq ($(BUILD_VERBOSE),0)
 	@echo "Compiling.....	[$<]" 
 endif
-	$(Q)$(CC) $(CFLAGS) -c -o $@ $<
+	$(Q)$(CXX) $(CFLAGS) -c -o $@ $<
 
 .cc.o :
 ifeq ($(BUILD_VERBOSE),0)
 	@echo "Compiling.....	[$<]" 
 endif
-	$(Q)$(CC) $(CFLAGS) -c -o $@ $<
+	$(Q)$(CXX) $(CFLAGS) -c -o $@ $<
 
 
 
