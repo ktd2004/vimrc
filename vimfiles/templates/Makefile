@@ -50,11 +50,12 @@ CSRCS := $(filter %.c, $(SRCS))
 CXXSRCS := $(filter %.cpp, $(SRCS))
 CCSRCS := $(filter %.cc, $(SRCS))
 OBJS := $(CSRCS:.c=.o) $(CXXSRCS:.cpp=.o) $(CCSRCS:.cc=.o)
-DEPS := $(CSRCS:.c=.d) $(CXXSRCS:.cpp=.d) $(CCSRCS:.cc=.d)
+DEPS := $(CSRCS:%.c=.%.depend) $(CXXSRCS:%.cpp=.%.depend) $(CCSRCS:%.cc=.%.depend)
 
 
 
 all : $(TARGET)
+	echo $(DEPS)
 
 
 
@@ -101,7 +102,7 @@ endif
 .PHONY : clean mrproper distclean doc
 clean :
 	-@rm -f $(OBJS) $(DEPS) $(TARGET)
-	-@find . \( -name '*.[oas]' -o -name '*.d' -o -name '*.d.*' \) \
+	-@find . \( -name '*.[oas]' -o -name '.*.depend' -o -name '.*.depend.*' \) \
 				-type f -print | xargs rm -f
 
 mrproper : clean
@@ -118,31 +119,31 @@ distclean : mrproper
 
 
 
-%.d : %.c
+.%.depend : %.c
 ifeq ($(BUILD_VERBOSE),0)
 	@echo "Making dep.....	[$<]" 
 endif
 	$(Q)set -e; b=`basename $< .c`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
-	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.d : ,g" < $@.$$$$ > $@; \
+	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/.\1.depend : ,g" < $@.$$$$ > $@; \
 	[ -s $@ ] && rm -f $@.$$$$
 
-%.d : %.cpp
+.%.depend : %.cpp
 ifeq ($(BUILD_VERBOSE),0)
 	@echo "Making dep.....	[$<]" 
 endif
 	$(Q)set -e; b=`basename $< .cpp`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
-	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.d : ,g" < $@.$$$$ > $@; \
+	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/.\1.depend : ,g" < $@.$$$$ > $@; \
 	[ -s $@ ] && rm -f $@.$$$$
 
-%.d : %.cc
+.%.depend : %.cc
 ifeq ($(BUILD_VERBOSE),0)
 	@echo "Making dep.....	[$<]" 
 endif
 	$(Q)set -e; b=`basename $< .cc`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
-	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.d : ,g" < $@.$$$$ > $@; \
+	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/.\1.depend : ,g" < $@.$$$$ > $@; \
 	[ -s $@ ] && rm -f $@.$$$$
 
 
