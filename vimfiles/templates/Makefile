@@ -63,7 +63,6 @@ export AS CC CXX CPP LD OD OC AR NM STRIP
 
 
 all : $(TARGET)
-	echo $(DEPS)
 
 
 
