@@ -2,7 +2,7 @@
 
 TARGET :=
 
-FILE_EXT := "none"
+FILE_EXT := none
 
 
 SRCS :=
@@ -12,7 +12,7 @@ CFGS :=
 
 CROSS_COMPILE ?=
 CFLAGS := -Wall -Wextra -O2 -I.
-LDFLAGS :=
+LDFLAGS := -lstdc++
 
 
 
@@ -166,3 +166,7 @@ unittest :
 	@TEST_DIR=`find . -type d -name "unittest" -print`; \
 	for tdir in $${TEST_DIR}; do make -C $${tdir} || exit 1; done;  \
 	for tdir in $${TEST_DIR}; do make -C $${tdir} run; done
+	
+
+run : ${TARGET}
+	./${TARGET}
