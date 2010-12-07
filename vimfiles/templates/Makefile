@@ -132,7 +132,7 @@ ifeq ($(BUILD_VERBOSE),0)
 endif
 	$(Q)set -e; b=`basename $< .c`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
-	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.${FILE_EXT}.depend : ,g" < $@.$$$$ > $@; \
+	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.${FILE_EXT}.o $${d}/\1.${FILE_EXT}.depend : ,g" < $@.$$$$ > $@; \
 	[ -s $@ ] && rm -f $@.$$$$
 
 %.${FILE_EXT}.depend : %.cpp
@@ -141,7 +141,7 @@ ifeq ($(BUILD_VERBOSE),0)
 endif
 	$(Q)set -e; b=`basename $< .cpp`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
-	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.${FILE_EXT}.depend : ,g" < $@.$$$$ > $@; \
+	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.${FILE_EXT}.o $${d}/\1.${FILE_EXT}.depend : ,g" < $@.$$$$ > $@; \
 	[ -s $@ ] && rm -f $@.$$$$
 
 %.${FILE_EXT}.depend : %.cc
@@ -150,7 +150,7 @@ ifeq ($(BUILD_VERBOSE),0)
 endif
 	$(Q)set -e; b=`basename $< .cc`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
-	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.o $${d}/\1.${FILE_EXT}.depend : ,g" < $@.$$$$ > $@; \
+	sed "s,\($${b}\)\.o[ :]*,$${d}/\1.${FILE_EXT}.o $${d}/\1.${FILE_EXT}.depend : ,g" < $@.$$$$ > $@; \
 	[ -s $@ ] && rm -f $@.$$$$
 
 
