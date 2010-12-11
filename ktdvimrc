@@ -256,6 +256,7 @@ set laststatus=2
 "set cursorline
 
 
+set nocp
 filetype plugin on
 if has("unix")
 	set tags+=/usr/include/tags
