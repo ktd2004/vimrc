@@ -13,6 +13,7 @@ CFGS :=
 CROSS_COMPILE ?=
 CFLAGS := -Wall -Wextra -O2 -I.
 LDFLAGS := -lstdc++
+ARFLAGS := rscv
 
 
 
@@ -72,17 +73,25 @@ ifeq ($(BUILD_VERBOSE),0)
 endif
 	$(Q)$(CC) -o $@ $(CFLAGS) $^ $(LDFLAGS)
 
+##ifeq ($(BUILD_VERBOSE),0)
+##	@echo "Archiving.....	[$@]" 
+##endif
+##	$(Q)$(AR) $(ARFLAGS) $@ $^
+
+
 %.${FILE_EXT}.o : %.c
 ifeq ($(BUILD_VERBOSE),0)
 	@echo "Compiling.....	[$<]" 
 endif
 	$(Q)$(CC) $(CFLAGS) -c -o $@ $<
 
+
 %.${FILE_EXT}.o : %.cpp
 ifeq ($(BUILD_VERBOSE),0)
 	@echo "Compiling.....	[$<]" 
 endif
 	$(Q)$(CXX) $(CFLAGS) -c -o $@ $<
+
 
 %.${FILE_EXT}.o : %.cc
 ifeq ($(BUILD_VERBOSE),0)
