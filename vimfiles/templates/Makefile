@@ -118,7 +118,7 @@ endif
 .PHONY : clean mrproper distclean doc
 clean :
 	-@rm -f $(OBJS) $(DEPS) $(TARGET)
-	-@find . \( -name '*.[oas]' -o -name '.*.depend' -o -name '.*.depend.*' \) \
+	-@find . \( -name '*.[os]' -o -name '.*.depend' -o -name '.*.depend.*' \) \
 				-type f -print | xargs rm -f
 
 mrproper : clean
