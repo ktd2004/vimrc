@@ -117,20 +117,28 @@ endif
 
 .PHONY : clean mrproper distclean doc
 clean :
-	-@rm -f $(OBJS) $(DEPS) $(TARGET)
-	-@find . \( -name '*.[os]' -o -name '.*.depend' -o -name '.*.depend.*' \) \
+	-@rm -f $(OBJS) $(TARGET)
+	-@find . \( -name '*.[os]' \) \
 				-type f -print | xargs rm -f
 
 mrproper : clean
-	-@rm -f $(CFGS)
+	-@rm -f $(CFGS) $(DEPS)
 	-@find . \( -name tags -o -name cscope.out -o -name cscope.files \) \
 				-type f -print | xargs rm -f
 
 distclean : mrproper
-	-@find . \( -name '*.orig' -o -name '*.rej' -o -name '*~' \
-				-o -name '*.bak' -o -name '#*#' -o -name '.*.orig' \
-				-o -name '*.org' -o -name '.*.rej' \
-				-o -name '*%' -o -name 'core' \) \
+	-@find . \( \
+		-name '#*#' -o \
+		-name '*%' -o \
+		-name '*.bak' -o \
+		-name '*.depend.*' -o \
+		-name '*.org' -o \
+		-name '*.orig' -o \
+		-name '*.rej' -o \
+		-name '.*.orig' -o \
+		-name '.*.rej' -o \
+		-name '*~' -o \
+		-name 'core' \) \
 				-type f -print | xargs rm -f
 
 
