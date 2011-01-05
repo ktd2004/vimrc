@@ -123,7 +123,11 @@ clean :
 
 mrproper : clean
 	-@rm -f $(CFGS) $(DEPS)
-	-@find . \( -name tags -o -name cscope.out -o -name cscope.files \) \
+	-@find . \( \
+		-name '*.depend' -o \
+		-name tags -o \
+		-name cscope.out -o \
+		-name cscope.files \) \
 				-type f -print | xargs rm -f
 
 distclean : mrproper
