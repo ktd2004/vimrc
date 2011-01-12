@@ -213,10 +213,10 @@ elseif v:lang =~ "^zh_CN"
 endif
 
 
-if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
-	set encoding=utf-8
-	set fileencodings=utf-8,cp949
-endif 
+"if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+"	set encoding=utf-8
+"	set fileencodings=utf-8,cp949
+"endif 
 
 
 if !has("unix")
