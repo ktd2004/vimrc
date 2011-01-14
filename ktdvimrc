@@ -111,7 +111,7 @@ ab ktddb <!-- vim:set ft=docbkxml ts=2 sw=2 sts=2 sta ai si bs=2 et: -->
 ab ktdsh ## vim:set ft=sh ts=4 sw=4 sts=4 sta ai si bs=2 noet:
 
 " .proto 파일을 위한 ktdsh
-ab ktdproto // vim:set ft=proto ts=2 sw=2 sts=2 sta ai si bs=2 et:
+ab ktdproto // vim:set ft=proto ts=4 sw=4 sts=4 sta ai si bs=2 noet:
 
 
 "vim에서 에러발생시 beep 대신에 Visual한 경고표시를 해주는 옵션.
