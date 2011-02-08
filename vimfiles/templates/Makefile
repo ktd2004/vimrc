@@ -9,6 +9,9 @@ SRCS :=
 CFGS :=
 
 
+LIBS :=
+
+
 
 CROSS_COMPILE ?=
 CFLAGS := -Wall -Wextra -O2 -I.
@@ -67,7 +70,7 @@ all : $(TARGET)
 
 
 
-$(TARGET) : $(OBJS)
+$(TARGET) : $(OBJS) $(LIBS)
 ifeq ($(BUILD_VERBOSE),0)
 	@echo "Linking.......	[$@]" 
 endif
@@ -101,6 +104,10 @@ endif
 
 
 
+$(LIBS) :
+	$(MAKE) -C $(dir $@)
+
+
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(MAKECMDGOALS),mrproper)
 ifneq ($(MAKECMDGOALS),distclean)
@@ -117,11 +124,15 @@ endif
 
 .PHONY : clean mrproper distclean doc
 clean :
+	-@for dir in $(dir $(LIB)) ; do \
+		$(MAKE) -C $$dir $@ ; done
 	-@rm -f $(OBJS) $(TARGET)
 	-@find . \( -name '*.[os]' \) \
 				-type f -print | xargs rm -f
 
 mrproper : clean
+	-@for dir in $(dir $(LIB)) ; do \
+		$(MAKE) -C $$dir $@ ; done
 	-@rm -f $(CFGS) $(DEPS)
 	-@find . \( \
 		-name '*.depend' -o \
@@ -131,6 +142,8 @@ mrproper : clean
 				-type f -print | xargs rm -f
 
 distclean : mrproper
+	-@for dir in $(dir $(LIB)) ; do \
+		$(MAKE) -C $$dir $@ ; done
 	-@find . \( \
 		-name '#*#' -o \
 		-name '*%' -o \
@@ -185,8 +198,8 @@ doc :
 ## unit test를 수행한다.
 unittest :
 	@TEST_DIR=`find . -type d -name "unittest" -print`; \
-	for tdir in $${TEST_DIR}; do make -C $${tdir} || exit 1; done;  \
-	for tdir in $${TEST_DIR}; do make -C $${tdir} run; done
+	for tdir in $${TEST_DIR}; do $(MAKE) -C $${tdir} || exit 1; done;  \
+	for tdir in $${TEST_DIR}; do $(MAKE) -C $${tdir} run; done
 	
 
 run : ${TARGET}
