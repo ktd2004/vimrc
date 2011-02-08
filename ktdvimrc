@@ -267,3 +267,5 @@ set wildmode=longest,list
 set modeline
 
 
+
+let g:neocomplcache_enable_at_startup = 1
