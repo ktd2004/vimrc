@@ -13,7 +13,7 @@ LIBS :=
 
 
 
-CROSS_COMPILE ?=
+CROSS_COMPILE =
 CFLAGS := -Wall -Wextra -O2 -I.
 LDFLAGS := -lstdc++
 ARFLAGS := rscv
