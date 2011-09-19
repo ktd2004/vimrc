@@ -271,9 +271,9 @@ set wildmode=longest,list
 set modeline
 
 
-"auto chdir dir
-"파일 진입시에 해당 파일의 디렉토리를 현재 디렉토리로 만든다.
-autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+""auto chdir dir
+""파일 진입시에 해당 파일의 디렉토리를 현재 디렉토리로 만든다.
+"autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 
 
 
