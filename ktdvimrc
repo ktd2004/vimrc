@@ -252,6 +252,10 @@ set laststatus=2
 "set cursorline
 
 
+"상위 디렉토리로 recursize하게 tags(TAGS) 파일을 찾아나간다.
+set tags=./tags;,./TAGS;,tags;,TAGS;
+
+
 set nocp
 filetype plugin on
 if has("unix")
@@ -265,6 +269,11 @@ set wildmode=longest,list
 
 " 각 파일에 존재하는 modeline을 활성화(사용)하기 위해 정의.
 set modeline
+
+
+"auto chdir dir
+"파일 진입시에 해당 파일의 디렉토리를 현재 디렉토리로 만든다.
+autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 
 
 
