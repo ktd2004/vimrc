@@ -4,4 +4,9 @@
 
 
 
+namespace @FILE@ {
+}	// namespace @FILE@
+
+
+
 #endif	/* ifndef @INCLUDE_GAURD@ */

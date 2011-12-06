@@ -6,7 +6,21 @@
 
 
 
+namespace @FILE@ {
+
+
+namespace {
+
+
+}	// namespace unnamed
+
+
+
 int main(int /* argc */, char** /* argv */)
 {
 	return 0;
 }
+
+
+
+}	// namespace @FILE@
