@@ -1,4 +1,4 @@
-/* vim:set ft=c ts=4 sw=4 sts=4 sta ai si ci bs=2: */
+/* vim:set ft=c ts=4 sw=4 sts=4 sta ai si cin bs=2 noet: */
 #include "@FILE@.h"
 
 
