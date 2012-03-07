@@ -72,33 +72,33 @@ all : $(TARGET)
 
 $(TARGET) : $(OBJS) $(LIBS)
 ifeq ($(BUILD_VERBOSE),0)
-	@echo "Linking.......	[$@]" 
+	@echo "Linking.......	[$@]"
 endif
 	$(Q)$(CC) -o $@ $(CFLAGS) $^ $(LDFLAGS)
 
 ##ifeq ($(BUILD_VERBOSE),0)
-##	@echo "Archiving.....	[$@]" 
+##	@echo "Archiving.....	[$@]"
 ##endif
 ##	$(Q)$(AR) $(ARFLAGS) $@ $^
 
 
 %.${FILE_EXT}.o : %.c
 ifeq ($(BUILD_VERBOSE),0)
-	@echo "Compiling.....	[$<]" 
+	@echo "Compiling.....	[$<]"
 endif
 	$(Q)$(CC) $(CFLAGS) -c -o $@ $<
 
 
 %.${FILE_EXT}.o : %.cpp
 ifeq ($(BUILD_VERBOSE),0)
-	@echo "Compiling.....	[$<]" 
+	@echo "Compiling.....	[$<]"
 endif
 	$(Q)$(CXX) $(CFLAGS) -c -o $@ $<
 
 
 %.${FILE_EXT}.o : %.cc
 ifeq ($(BUILD_VERBOSE),0)
-	@echo "Compiling.....	[$<]" 
+	@echo "Compiling.....	[$<]"
 endif
 	$(Q)$(CXX) $(CFLAGS) -c -o $@ $<
 
@@ -162,7 +162,7 @@ distclean : mrproper
 
 %.${FILE_EXT}.depend : %.c
 ifeq ($(BUILD_VERBOSE),0)
-	@echo "Making dep.....	[$<]" 
+	@echo "Making dep.....	[$<]"
 endif
 	$(Q)set -e; b=`basename $< .c`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
@@ -171,7 +171,7 @@ endif
 
 %.${FILE_EXT}.depend : %.cpp
 ifeq ($(BUILD_VERBOSE),0)
-	@echo "Making dep.....	[$<]" 
+	@echo "Making dep.....	[$<]"
 endif
 	$(Q)set -e; b=`basename $< .cpp`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
@@ -180,7 +180,7 @@ endif
 
 %.${FILE_EXT}.depend : %.cc
 ifeq ($(BUILD_VERBOSE),0)
-	@echo "Making dep.....	[$<]" 
+	@echo "Making dep.....	[$<]"
 endif
 	$(Q)set -e; b=`basename $< .cc`; d=`dirname $<`; rm -f $@;  \
 	$(CC) -MM $(CFLAGS) $< > $@.$$$$;       \
@@ -200,7 +200,7 @@ unittest :
 	@TEST_DIR=`find . -type d -name "unittest" -print`; \
 	for tdir in $${TEST_DIR}; do $(MAKE) -C $${tdir} || exit 1; done;  \
 	for tdir in $${TEST_DIR}; do $(MAKE) -C $${tdir} run; done
-	
+
 
 run : ${TARGET}
 	./${TARGET}
