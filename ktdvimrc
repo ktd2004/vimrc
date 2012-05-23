@@ -271,6 +271,10 @@ set wildmode=longest,list
 set modeline
 
 
+" vim + putty에서 mouse wheel을 동작시키기 위한 옵션
+set mouse=a
+
+
 ""auto chdir dir
 ""파일 진입시에 해당 파일의 디렉토리를 현재 디렉토리로 만든다.
 "autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
