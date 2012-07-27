@@ -69,7 +69,7 @@ set hlsearch
 
 
 "auto indent 설정
-set autoindent smartindent smarttab
+"set autoindent smartindent smarttab
 
 
 "{[(,)]}를 넣을 때 매치되는 곳으로 갔다가 온다.
@@ -183,7 +183,7 @@ set nonu
 
 
 " python 스트립트 파일을 위해 정의함.
-au BufNewFile,BufRead *.py,*.pyw set ts=4 sw=4 sts=4 sta ai si bs=2 et
+au BufNewFile,BufRead *.py,*.pyw set ts=4 sw=4 sts=4 sta bs=2 et
 au BufNewFile,BufRead *.c,*.cpp,*.h,*.hpp set ts=4 sw=4 sts=4 sta ai si cin
 augroup filetype
   au! BufRead,BufNewFile *.proto setfiletype proto
@@ -282,3 +282,8 @@ set mouse=a
 
 
 let g:neocomplcache_enable_at_startup = 1
+
+
+
+filetype plugin indent on
+"syntax enable
