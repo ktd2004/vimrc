@@ -192,7 +192,7 @@ augroup end
 
 
 if tolower(v:lang) =~ "^ko"
-	set fileencodings=ucs-bom,utf-8,default,latin1
+	set fileencodings=default,ucs-bom,utf-8,latin1
 	set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*
 elseif v:lang =~ "^ja_JP"
 	set fileencodings=euc-jp
@@ -206,9 +206,6 @@ elseif v:lang =~ "^zh_CN"
 endif
 
 set termencoding=cp949
-
-au BufReadPost * if search('\S', 'w') == 0 |
-    \ set fenc=default | endif
 
 
 
