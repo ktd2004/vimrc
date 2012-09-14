@@ -191,15 +191,8 @@ augroup end
 
 
 
-set fileencoding=korea
-
-"[20041113]
-""http://bbs.kldp.org/viewtopic.php?t=46594
-"다른 로케일의 파일을 열면, "변환되었습니다."라고 나온다.
-""저장할 때 읽은 로케일로 저장된다.
-if v:lang =~ "^ko"
-	set encoding=cp949
-	set fileencodings=cp949,utf-8
+if tolower(v:lang) =~ "^ko"
+	set fileencodings=ucs-bom,utf-8,default,latin1
 	set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*
 elseif v:lang =~ "^ja_JP"
 	set fileencodings=euc-jp
@@ -212,20 +205,11 @@ elseif v:lang =~ "^zh_CN"
 	set guifontset=*-r-*
 endif
 
+set termencoding=cp949
 
-"if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
-"	set encoding=utf-8
-"	set fileencodings=utf-8,cp949
-"endif 
+au BufReadPost * if search('\S', 'w') == 0 |
+    \ set fenc=default | endif
 
-
-if !has("unix")
-	set fencs=cp949,ucs-bom,utf-8
-else
-	set fencs=euc-kr,utf-8
-endif
-
-set termencoding=euc-kr
 
 
 " doxygen syntax를 위해 정의.
