@@ -192,7 +192,21 @@ augroup end
 
 
 if tolower(v:lang) =~ "^ko"
-	set fileencodings=default,ucs-bom,utf-8,latin1
+	if !has("unix")
+		set encoding=cp949
+		set fileencodings=cp949,ucs-bom,utf-8,latin1
+		setglobal fileencoding=cp949
+	else
+		if tolower(v:lang) =~ "utf8$" || tolower(v:lang) =~ "utf-8$"
+			set encoding=utf-8
+			set fileencodings=ucs-bom,utf-8,euc-kr,latin1
+			setglobal fileencoding=utf-8
+		else
+			set encoding=euc-kr
+			set fileencodings=euc-kr,ucs-bom,utf-8,latin1
+			setglobal fileencoding=euc-kr
+		endif
+	endif
 	set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*
 elseif v:lang =~ "^ja_JP"
 	set fileencodings=euc-jp
@@ -205,7 +219,12 @@ elseif v:lang =~ "^zh_CN"
 	set guifontset=*-r-*
 endif
 
-set termencoding=cp949
+
+if tolower(v:lang) =~ "utf8$" || tolower(v:lang) =~ "utf-8$"
+	set termencoding=utf-8
+else
+	set termencoding=cp949
+endif
 
 
 
