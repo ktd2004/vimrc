@@ -194,8 +194,8 @@ augroup end
 if tolower(v:lang) =~ "^ko"
 	if !has("unix")
 		set encoding=cp949
-		set fileencodings=cp949,ucs-bom,utf-8,latin1
-		setglobal fileencoding=cp949
+		set fileencodings=ucs-bom,utf-8,cp949,latin1
+		setglobal fileencoding=utf-8
 	else
 		if tolower(v:lang) =~ "utf8$" || tolower(v:lang) =~ "utf-8$"
 			set encoding=utf-8
