@@ -1,6 +1,6 @@
 " vim:set ft=vim ts=4 sw=4 sts=4 sta ai bs=2:
 
-" Color Scheme ¼³Á¤
+" Color Scheme ì„¤ì •
 if has("unix")
 	colorscheme ron
 else
@@ -12,19 +12,19 @@ else
 endif
 
 
-" gui_win32¿¡¼­ ½Ã½ºÅÛ ÆùÆ®/Ã¢Å©±â/´ÜÃàÅ°¸¦ ¼³Á¤ÇÑ´Ù.
+" gui_win32ì—ì„œ ì‹œìŠ¤í…œ í°íŠ¸/ì°½í¬ê¸°/ë‹¨ì¶•í‚¤ë¥¼ ì„¤ì •í•œë‹¤.
 if has("gui_win32")
-	"set guifont=±¼¸²Ã¼:h10:cHANGEUL
-	set guifont=³ª´®°íµñÄÚµù:h10:cHANGEUL
+	"set guifont=êµ´ë¦¼ì²´:h10:cHANGEUL
+	set guifont=ë‚˜ëˆ”ê³ ë”•ì½”ë”©:h10:cHANGEUL
 	set lines=80
 
-	" ½Ã½ºÅÛ ¸Ş´º¸¦ µ¿ÀÛ½ÃÅ°´Â ¸ÊÇÎ.
-	map <C-k> :simalt ~x<CR>	"ÃÖ´ëÈ­ ½ÃÅ°´Â ¸ÊÇÎ
-	map <C-j> :simalt ~r<CR>	"¿ø·¡´ë·Î º¹±¸ÇÏ´Â ¸ÊÇÎ
+	" ì‹œìŠ¤í…œ ë©”ë‰´ë¥¼ ë™ì‘ì‹œí‚¤ëŠ” ë§µí•‘.
+	map <C-k> :simalt ~x<CR>	"ìµœëŒ€í™” ì‹œí‚¤ëŠ” ë§µí•‘
+	map <C-j> :simalt ~r<CR>	"ì›ë˜ëŒ€ë¡œ ë³µêµ¬í•˜ëŠ” ë§µí•‘
 endif
 
 
-"ÃÊ±â¿¡ ÆÄÀÏ Æ÷¸ËÀ» µµ½º·Î ¼³Á¤.
+"ì´ˆê¸°ì— íŒŒì¼ í¬ë§·ì„ ë„ìŠ¤ë¡œ ì„¤ì •.
 if has("unix")
 	set fileformat=unix
 else	" has("gui_win32")
@@ -32,13 +32,13 @@ else	" has("gui_win32")
 endif
 
 
-"ÆÄÀÏÀÌ¸§À» Å¸ÀÌÆ²¹Ù¿¡ ³Ö´Â´Ù.
+"íŒŒì¼ì´ë¦„ì„ íƒ€ì´í‹€ë°”ì— ë„£ëŠ”ë‹¤.
 set title
 
 
-"gui¿ë¿¡¼­ °¢Á¾ ¼³Á¤µé. ¿¹¸¦ µé¸é T´Â toolbar¸¦ º¸¿©ÁÖ´Â ¿É¼ÇÀÌ´Ù.
+"guiìš©ì—ì„œ ê°ì¢… ì„¤ì •ë“¤. ì˜ˆë¥¼ ë“¤ë©´ TëŠ” toolbarë¥¼ ë³´ì—¬ì£¼ëŠ” ì˜µì…˜ì´ë‹¤.
 "g : Grey menu items
-"r : ¼öÁ÷½ºÅ©·Ñ¹Ù
+"r : ìˆ˜ì§ìŠ¤í¬ë¡¤ë°”
 "T : Toolbar
 "m : menu bar
 "t : tearoff menu
@@ -49,99 +49,99 @@ elseif has("gui_win32")
 endif
 
 
-"ÀÔ·Â¸ğµå·Î µé¾î°¥¶§ ¿µ¹®À¸·Î ½ÃÀÛÇÏ°Ô ÇÏ´Â setting.
+"ì…ë ¥ëª¨ë“œë¡œ ë“¤ì–´ê°ˆë•Œ ì˜ë¬¸ìœ¼ë¡œ ì‹œì‘í•˜ê²Œ í•˜ëŠ” setting.
 set iminsert=0
 
-"°Ë»ö¸ğµå¿¡¼­ Ç×»ó ¿µ¹®À¸·Î ½ÃÀÛÇÏ°Ô ÇÏ´Â setting.
+"ê²€ìƒ‰ëª¨ë“œì—ì„œ í•­ìƒ ì˜ë¬¸ìœ¼ë¡œ ì‹œì‘í•˜ê²Œ í•˜ëŠ” setting.
 set imsearch=-1
 
-" ESC¸¦ ´­·¶À»¶§ ¿µ¹®À¸·Î ¼³Á¤ÇÏµµ·Ï ÇÑ´Ù.
+" ESCë¥¼ ëˆŒë €ì„ë•Œ ì˜ë¬¸ìœ¼ë¡œ ì„¤ì •í•˜ë„ë¡ í•œë‹¤.
 inoremap <ESC> <ESC>:set iminsert=0<CR>
 
 
-"ÀÔ·Â¸ğµå¿¡¼­ ÇÑ±Û»óÅÂÀÏ¶§ Ä¿¼­ÀÇ »ö±òÀ» ´Ù¸£°Ô ÇÑ´Ù.
+"ì…ë ¥ëª¨ë“œì—ì„œ í•œê¸€ìƒíƒœì¼ë•Œ ì»¤ì„œì˜ ìƒ‰ê¹”ì„ ë‹¤ë¥´ê²Œ í•œë‹¤.
 highlight Cursor guibg=Red guifg=Black ctermbg=Red ctermfg=Black
 highlight CursorIM guibg=Blue guifg=NONE ctermbg=Blue ctermfg=NONE
 
 
-"°Ë»ö½Ã Ã£Àº ´Ü¾î¸¦ heightingÇÑ´Ù.
+"ê²€ìƒ‰ì‹œ ì°¾ì€ ë‹¨ì–´ë¥¼ heightingí•œë‹¤.
 set hlsearch
 
 
-"auto indent ¼³Á¤
+"auto indent ì„¤ì •
 "set autoindent smartindent smarttab
 
 
-"{[(,)]}¸¦ ³ÖÀ» ¶§ ¸ÅÄ¡µÇ´Â °÷À¸·Î °¬´Ù°¡ ¿Â´Ù.
+"{[(,)]}ë¥¼ ë„£ì„ ë•Œ ë§¤ì¹˜ë˜ëŠ” ê³³ìœ¼ë¡œ ê°”ë‹¤ê°€ ì˜¨ë‹¤.
 set matchtime=3
 set showmatch
 
 
-"command lineÀÇ ÁÙ¼ö¸¦ ÁöÁ¤ÇÑ´Ù.
+"command lineì˜ ì¤„ìˆ˜ë¥¼ ì§€ì •í•œë‹¤.
 set cmdheight=1
 
 
-"ÇöÀç µğ·ºÅä¸®ÀÇ .vimrcÆÄÀÏÀ» ½ÇÇàÇÒ ¼ö ÀÖ°Ô ÇÏ±âÀ§ÇØ »ç¿ë.
+"í˜„ì¬ ë””ë ‰í† ë¦¬ì˜ .vimrcíŒŒì¼ì„ ì‹¤í–‰í•  ìˆ˜ ìˆê²Œ í•˜ê¸°ìœ„í•´ ì‚¬ìš©.
 set exrc
 
 
-" C ÆÄÀÏÀÇ ÇüÅÂ¸¦ ÁöÁ¤ÇØ ÁÖ´Â ktdc..
+" C íŒŒì¼ì˜ í˜•íƒœë¥¼ ì§€ì •í•´ ì£¼ëŠ” ktdc..
 ab ktdc /* vim:set ft=c ts=4 sw=4 sts=4 sta ai si cin bs=2 noet: */
 
-" CPP ÆÄÀÏÀÇ ÇüÅÂ¸¦ ÁöÁ¤ÇØ ÁÖ´Â ktdcpp..
+" CPP íŒŒì¼ì˜ í˜•íƒœë¥¼ ì§€ì •í•´ ì£¼ëŠ” ktdcpp..
 ab ktdcpp /* vim:set ft=cpp ts=4 sw=4 sts=4 sta ai si cin bs=2 noet: */
 
-" Moin ÆÄÀÏÀÇ ÇüÅÂ¸¦ ÁöÁ¤ÇØ ÁÖ´Â ktdcpp..
+" Moin íŒŒì¼ì˜ í˜•íƒœë¥¼ ì§€ì •í•´ ì£¼ëŠ” ktdcpp..
 ab ktdmoin ## vim:set ft=moin ts=4 sw=4 sts=4 sta ai si bs=2 et:
 
 
-" XML ÆÄÀÏÀÇ ÇüÅÂ¸¦ ÁöÁ¤ÇØ ÁÖ´Â ktdxml ....
+" XML íŒŒì¼ì˜ í˜•íƒœë¥¼ ì§€ì •í•´ ì£¼ëŠ” ktdxml ....
 ab ktdxml <!-- vim:set ft=xml ts=2 sw=2 sts=2 sta ai si bs=2 et: -->
 
-" XML ÆÄÀÏÀÇ ÇüÅÂ¸¦ ÁöÁ¤ÇØ ÁÖ´Â ktdxml ....
+" XML íŒŒì¼ì˜ í˜•íƒœë¥¼ ì§€ì •í•´ ì£¼ëŠ” ktdxml ....
 ab ktdhtml <!-- vim:set ft=html ts=2 sw=2 sts=2 sta ai si bs=2 et: -->
 
-" XSL ÆÄÀÏÀÇ ÇüÅÂ¸¦ ÁöÁ¤ÇØ ÁÖ´Â ktdxslt
+" XSL íŒŒì¼ì˜ í˜•íƒœë¥¼ ì§€ì •í•´ ì£¼ëŠ” ktdxslt
 ab ktdxslt <!-- vim:set ft=xslt ts=2 sw=2 sts=2 sta ai si bs=2 et: -->
 
-" DocBook ¹®¼­¸¦ À§ÇÑ ktddk
+" DocBook ë¬¸ì„œë¥¼ ìœ„í•œ ktddk
 ab ktddb <!-- vim:set ft=docbkxml ts=2 sw=2 sts=2 sta ai si bs=2 et: -->
 
-" shell script¸¦ À§ÇÑ ktdsh
+" shell scriptë¥¼ ìœ„í•œ ktdsh
 ab ktdsh ## vim:set ft=sh ts=4 sw=4 sts=4 sta ai si bs=2 noet:
 
-" .proto ÆÄÀÏÀ» À§ÇÑ ktdsh
+" .proto íŒŒì¼ì„ ìœ„í•œ ktdsh
 ab ktdproto // vim:set ft=proto ts=4 sw=4 sts=4 sta ai si bs=2 noet:
 
 
-"vim¿¡¼­ ¿¡·¯¹ß»ı½Ã beep ´ë½Å¿¡ VisualÇÑ °æ°íÇ¥½Ã¸¦ ÇØÁÖ´Â ¿É¼Ç.
+"vimì—ì„œ ì—ëŸ¬ë°œìƒì‹œ beep ëŒ€ì‹ ì— Visualí•œ ê²½ê³ í‘œì‹œë¥¼ í•´ì£¼ëŠ” ì˜µì…˜.
 set visualbell
 
 
-"³¡¿¡ '~'°¡ ºÙÀº backupÆÄÀÏÀ» »ı¼ºÇÏÁö ¾Êµµ·Ï ÇÏ´Â ¿É¼Ç.
-"Æ¯º°È÷ backup ÆÄÀÏÀÌ ÇÊ¿äÇÑ °æ¿ì°¡ ¾ø¾ú´ø °Í °°´Ù.
+"ëì— '~'ê°€ ë¶™ì€ backupíŒŒì¼ì„ ìƒì„±í•˜ì§€ ì•Šë„ë¡ í•˜ëŠ” ì˜µì…˜.
+"íŠ¹ë³„íˆ backup íŒŒì¼ì´ í•„ìš”í•œ ê²½ìš°ê°€ ì—†ì—ˆë˜ ê²ƒ ê°™ë‹¤.
 set nobackup
 
 
-"bdir : Backup Directory ¼³Á¤. xxx~ ÆÄÀÏÀ» ÀúÀåÇÏ±â À§ÇÑ µğ·ºÅä¸®.
-"dir : swap Directory ¼³Á¤. xxx.swp ÆÄÀÏÀ» ÀúÀåÇÏ±â À§ÇÑ µğ·ºÅä¸®.
+"bdir : Backup Directory ì„¤ì •. xxx~ íŒŒì¼ì„ ì €ì¥í•˜ê¸° ìœ„í•œ ë””ë ‰í† ë¦¬.
+"dir : swap Directory ì„¤ì •. xxx.swp íŒŒì¼ì„ ì €ì¥í•˜ê¸° ìœ„í•œ ë””ë ‰í† ë¦¬.
 if has("unix")
 	set bdir=.,~,~/tmp,$TEMP,$TMP
 	set dir=.,~,~/tmp,$TEMP,$TMP
 else
-	" backup ÆÄÀÏÀÎ xxx~ ÆÄÀÏÀÌ ÇöÀç µğ·ºÅä¸®¿¡ »ı¼ºµÇ´Ï±î º¸±â½È´Ù.
-	" ÇöÀç µğ·ºÅä¸®¸¦ bdir ¸®½ºÆ®¿¡¼­ Á¦°ÅÇßÀ½.
+	" backup íŒŒì¼ì¸ xxx~ íŒŒì¼ì´ í˜„ì¬ ë””ë ‰í† ë¦¬ì— ìƒì„±ë˜ë‹ˆê¹Œ ë³´ê¸°ì‹«ë‹¤.
+	" í˜„ì¬ ë””ë ‰í† ë¦¬ë¥¼ bdir ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°í–ˆìŒ.
 	set bdir=c:/tmp,c:/temp,$TEMP,$TMP
 
-	" swap ÆÄÀÏÀ» »ı¼ºÇÏ´Â dir ¸®½ºÆ®¿¡¼­ ÇöÀç µğ·ºÅä¸®¸¦ Á¦°ÅÇßÀ½.
-	" À©µµ¿ì¿¡¼­ »ç¿ëÇÒ ¶§ Å½»ö±â¿¡ '*.swp'ÆÄÀÏÀÌ »ı¼ºµÇ¾ú´Ù°¡ »ç¶óÁö¸é¼­
-	" "context menu" Ã¢ÀÌ ´İ°Ü¹ö¸®´Â ¹®Á¦°¡ ÀÖ¾î¼­ ´õ¿í ´õ ÇÊ¿ä¾øÀ» °Í °°´Ù.
+	" swap íŒŒì¼ì„ ìƒì„±í•˜ëŠ” dir ë¦¬ìŠ¤íŠ¸ì—ì„œ í˜„ì¬ ë””ë ‰í† ë¦¬ë¥¼ ì œê±°í–ˆìŒ.
+	" ìœˆë„ìš°ì—ì„œ ì‚¬ìš©í•  ë•Œ íƒìƒ‰ê¸°ì— '*.swp'íŒŒì¼ì´ ìƒì„±ë˜ì—ˆë‹¤ê°€ ì‚¬ë¼ì§€ë©´ì„œ
+	" "context menu" ì°½ì´ ë‹«ê²¨ë²„ë¦¬ëŠ” ë¬¸ì œê°€ ìˆì–´ì„œ ë”ìš± ë” í•„ìš”ì—†ì„ ê²ƒ ê°™ë‹¤.
 	set dir=c:/tmp,c:/temp,$TEMP,$TMP
 endif
 
 
-"Ç×»ó ÆÄÀÏÀ» ÀĞ¾îµéÀÏ¶§ ÀÌÀü¿¡ Á¾·áµÇ¾ú´ø corsor À§Ä¡¿¡¼­ ½ÃÀÛÇÏµµ·Ï ÇÑ´Ù.
-"Ä¿¼­ À§Ä¡ ±â¾ïÇÏ´Â ¹æ¹ıÁß ´ÙÀ½°ú °°Àº ¹æ¹ıµµ ÀÖ´Ù.
+"í•­ìƒ íŒŒì¼ì„ ì½ì–´ë“¤ì¼ë•Œ ì´ì „ì— ì¢…ë£Œë˜ì—ˆë˜ corsor ìœ„ì¹˜ì—ì„œ ì‹œì‘í•˜ë„ë¡ í•œë‹¤.
+"ì»¤ì„œ ìœ„ì¹˜ ê¸°ì–µí•˜ëŠ” ë°©ë²•ì¤‘ ë‹¤ìŒê³¼ ê°™ì€ ë°©ë²•ë„ ìˆë‹¤.
 "------------------------------------------------------------------------
 "set viewoptions=cursor
 "au BufWinLeave *.c,*.cc,*.h,*.html,*.php,Makefile,*.mak mkview
@@ -156,33 +156,33 @@ if has("autocmd")
 endif
 
 
-"¸¶¿ì½º·Î ºÙ¿©³Ö±â¸¦ ÇÒ ¶§ autoindent³ª textwidthµîÀÌ ÀÛµ¿ÇØ ¹ö·Á¼­ ¿øÇÏÁö
-"¾Ê´Â µé¿©¾²±â°¡ µÇ´Â °ÍÀ» ¸·´Â °æ¿ì¿¡ »ç¿ëÇÑ´Ù.
-"ºÙ¿©³Ö±â ÇÏ±âÀü¿¡ :set paste, ºÙ¿©³Ö±â ÇÑÈÄ¿¡ :set nopaste
-"pastetoggle=<ins>·Î ¼³Á¤ÇÏ¸é <ins>Å°¸¦ ´©¸¦¶§¸¶´Ù ÀÌ »óÅÂ°¡ toggleµÈ´Ù.
+"ë§ˆìš°ìŠ¤ë¡œ ë¶™ì—¬ë„£ê¸°ë¥¼ í•  ë•Œ autoindentë‚˜ textwidthë“±ì´ ì‘ë™í•´ ë²„ë ¤ì„œ ì›í•˜ì§€
+"ì•ŠëŠ” ë“¤ì—¬ì“°ê¸°ê°€ ë˜ëŠ” ê²ƒì„ ë§‰ëŠ” ê²½ìš°ì— ì‚¬ìš©í•œë‹¤.
+"ë¶™ì—¬ë„£ê¸° í•˜ê¸°ì „ì— :set paste, ë¶™ì—¬ë„£ê¸° í•œí›„ì— :set nopaste
+"pastetoggle=<ins>ë¡œ ì„¤ì •í•˜ë©´ <ins>í‚¤ë¥¼ ëˆ„ë¥¼ë•Œë§ˆë‹¤ ì´ ìƒíƒœê°€ toggleëœë‹¤.
 set pastetoggle=<ins>
 
 
-"gui_win32¿¡ diff ¸ğµå·Î openÇÒ °æ¿ì¿¡ Ã¢À» ÃÖ´ëÈ­ ÇÑ´Ù.
-"subversionÀÇ diff ¸ğµå¿¡¼­ »ç¿ëÇÏ±âÀ§ÇØ¼­ ¼³Á¤ÇßÀ½.
-"Âü°í : http://www.vim.org/tips/tip.php?tip_id=88
+"gui_win32ì— diff ëª¨ë“œë¡œ opení•  ê²½ìš°ì— ì°½ì„ ìµœëŒ€í™” í•œë‹¤.
+"subversionì˜ diff ëª¨ë“œì—ì„œ ì‚¬ìš©í•˜ê¸°ìœ„í•´ì„œ ì„¤ì •í–ˆìŒ.
+"ì°¸ê³  : http://www.vim.org/tips/tip.php?tip_id=88
 if has("gui_win32") && &diff
 	au GUIEnter * simalt ~x
 endif
 
 
-"gui_win32ÀÏ ¶§ Alt_Space Å°°¡ ½Ã½ºÅÛ ¸Ş´º·Î µ¿ÀÛÇÏµµ·Ï ÇÑ´Ù.
-"Âü°í : http://www.vim.org/tips/tip.php?tip_id=645
+"gui_win32ì¼ ë•Œ Alt_Space í‚¤ê°€ ì‹œìŠ¤í…œ ë©”ë‰´ë¡œ ë™ì‘í•˜ë„ë¡ í•œë‹¤.
+"ì°¸ê³  : http://www.vim.org/tips/tip.php?tip_id=645
 if has("gui_win32")
 	set winaltkeys=yes 
 endif
 
 
-"ÃÊ±â¿¡ number ±â´ÉÀ» disable½ÃÅ°µµ·Ï ÇÏÀÚ.
+"ì´ˆê¸°ì— number ê¸°ëŠ¥ì„ disableì‹œí‚¤ë„ë¡ í•˜ì.
 set nonu
 
 
-" python ½ºÆ®¸³Æ® ÆÄÀÏÀ» À§ÇØ Á¤ÀÇÇÔ.
+" python ìŠ¤íŠ¸ë¦½íŠ¸ íŒŒì¼ì„ ìœ„í•´ ì •ì˜í•¨.
 au BufNewFile,BufRead *.py,*.pyw set ts=4 sw=4 sts=4 sta bs=2 et
 au BufNewFile,BufRead *.c,*.cpp,*.h,*.hpp set ts=4 sw=4 sts=4 sta ai si cin
 augroup filetype
@@ -228,31 +228,31 @@ endif
 
 
 
-" doxygen syntax¸¦ À§ÇØ Á¤ÀÇ.
+" doxygen syntaxë¥¼ ìœ„í•´ ì •ì˜.
 au! Syntax {cpp,c,idl}
 au Syntax {cpp,c,idl} runtime syntax/doxygen.vim
 
 
-"TagExplorer¸¦ À§ÇÑ Å°¸ÊÇÎ
+"TagExplorerë¥¼ ìœ„í•œ í‚¤ë§µí•‘
 nnoremap <silent> <F5> :TagExplorer<CR> 
 
-"Tag list¸¦ À§ÇÑ Å°¸ÊÇÎ
+"Tag listë¥¼ ìœ„í•œ í‚¤ë§µí•‘
 nnoremap <silent> <F6> :TlistToggle<CR>
 
 
-"°Ë»ö½Ã¿¡ °Ë»öÇÒ ´Ü¾î¸¦ ÇÏ³ª¾¿ ¿Ï¼ºÇØ°¡µµ·Ï ÇÑ´Ù.
+"ê²€ìƒ‰ì‹œì— ê²€ìƒ‰í•  ë‹¨ì–´ë¥¼ í•˜ë‚˜ì”© ì™„ì„±í•´ê°€ë„ë¡ í•œë‹¤.
 set incsearch
 
 
-"Ç×»ó ÆÄÀÏ¿¡ ´ëÇÑ Á¤º¸¸¦ È­¸é ÇÏ´Ü¿¡ Ç¥½ÃÇÏµµ·Ï ÇÑ´Ù.
+"í•­ìƒ íŒŒì¼ì— ëŒ€í•œ ì •ë³´ë¥¼ í™”ë©´ í•˜ë‹¨ì— í‘œì‹œí•˜ë„ë¡ í•œë‹¤.
 set laststatus=2
 
 
-"ÇöÀç ¶óÀÎ¿¡ ¹ØÁÙÀ» ±×¾îÁØ´Ù. ¼Óµµ°¡ ´À·ÁÁö´Â ¹®Á¦°¡ ÀÖÀ½.
+"í˜„ì¬ ë¼ì¸ì— ë°‘ì¤„ì„ ê·¸ì–´ì¤€ë‹¤. ì†ë„ê°€ ëŠë ¤ì§€ëŠ” ë¬¸ì œê°€ ìˆìŒ.
 "set cursorline
 
 
-"»óÀ§ µğ·ºÅä¸®·Î recursizeÇÏ°Ô tags(TAGS) ÆÄÀÏÀ» Ã£¾Æ³ª°£´Ù.
+"ìƒìœ„ ë””ë ‰í† ë¦¬ë¡œ recursizeí•˜ê²Œ tags(TAGS) íŒŒì¼ì„ ì°¾ì•„ë‚˜ê°„ë‹¤.
 set tags=./tags;,./TAGS;,tags;,TAGS;
 
 
@@ -263,20 +263,20 @@ if has("unix")
 endif
 
 
-" EX ¸ğµå¿¡¼­ ÀÚµ¿ ¿Ï¼º ±â´ÉÀÇ shellÀÇ °Í°ú °°µµ·Ï ÇÑ´Ù.
+" EX ëª¨ë“œì—ì„œ ìë™ ì™„ì„± ê¸°ëŠ¥ì˜ shellì˜ ê²ƒê³¼ ê°™ë„ë¡ í•œë‹¤.
 set wildmode=longest,list
 
 
-" °¢ ÆÄÀÏ¿¡ Á¸ÀçÇÏ´Â modelineÀ» È°¼ºÈ­(»ç¿ë)ÇÏ±â À§ÇØ Á¤ÀÇ.
+" ê° íŒŒì¼ì— ì¡´ì¬í•˜ëŠ” modelineì„ í™œì„±í™”(ì‚¬ìš©)í•˜ê¸° ìœ„í•´ ì •ì˜.
 set modeline
 
 
-" vim + putty¿¡¼­ mouse wheelÀ» µ¿ÀÛ½ÃÅ°±â À§ÇÑ ¿É¼Ç
+" vim + puttyì—ì„œ mouse wheelì„ ë™ì‘ì‹œí‚¤ê¸° ìœ„í•œ ì˜µì…˜
 set mouse=a
 
 
 ""auto chdir dir
-""ÆÄÀÏ ÁøÀÔ½Ã¿¡ ÇØ´ç ÆÄÀÏÀÇ µğ·ºÅä¸®¸¦ ÇöÀç µğ·ºÅä¸®·Î ¸¸µç´Ù.
+""íŒŒì¼ ì§„ì…ì‹œì— í•´ë‹¹ íŒŒì¼ì˜ ë””ë ‰í† ë¦¬ë¥¼ í˜„ì¬ ë””ë ‰í† ë¦¬ë¡œ ë§Œë“ ë‹¤.
 "autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 
 
