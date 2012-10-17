@@ -14,8 +14,10 @@ endif
 
 " gui_win32에서 시스템 폰트/창크기/단축키를 설정한다.
 if has("gui_win32")
-	"set guifont=굴림체:h10:cHANGEUL
-	set guifont=나눔고딕코딩:h10:cHANGEUL
+	" 윈도우에서 한글 이름의 font를 제대로 load하기 위해서
+	" cp949 encoding의 font용 vimrc 파일을 load하도록 함
+	so $VIM/ktdvimrc_font
+
 	set lines=80
 
 	" 시스템 메뉴를 동작시키는 맵핑.
