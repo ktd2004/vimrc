@@ -1,0 +1,10 @@
+" vim:set ft=vim ts=4 sw=4 sts=4 sta ai bs=2:
+
+
+"한글 이름의 font를 정상적으로 load하기 위해서
+"file encoding이 utf-8이 아닌 cp949여야만 한다.
+"따라서 ktdvimrc 파일외에 별도의 font 설정용 파일을 사용함
+
+
+"set guifont=굴림체:h10:cHANGEUL
+set guifont=나눔고딕코딩:h10:b:cHANGEUL
