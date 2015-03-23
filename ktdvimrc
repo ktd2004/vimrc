@@ -93,9 +93,9 @@ ab ktdc /* vim:set ft=c ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
 " CPP 파일의 형태를 지정해 주는 ktdcpp..
 ab ktdcpp /* vim:set ft=cpp ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
 
-" Moin 파일의 형태를 지정해 주는 ktdcpp..
-ab ktdmoin ## vim:set ft=moin ts=8 sts=4 sw=4 sta et ai si bs=2 tw=0:
 
+" Moin 파일의 형태를 지정해 주는 ktdcpp..
+ab ktdmoin ## vim:set ft=moin ts=8 sts=2 sw=2 sta et ai si bs=2 tw=0:
 
 " XML 파일의 형태를 지정해 주는 ktdxml ....
 ab ktdxml <!-- vim:set ft=xml ts=8 sts=2 sw=2 sta et ai si bs=2: -->
@@ -108,6 +108,7 @@ ab ktdxslt <!-- vim:set ft=xslt ts=8 sts=2 sw=2 sta et ai si bs=2: -->
 
 " DocBook 문서를 위한 ktddk
 ab ktddb <!-- vim:set ft=docbkxml ts=8 sts=2 sw=2 sta et ai si bs=2: -->
+
 
 " shell script를 위한 ktdsh
 ab ktdsh ## vim:set ft=sh ts=8 sts=4 sw=4 sta et ai si bs=2:
