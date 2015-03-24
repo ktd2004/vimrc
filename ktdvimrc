@@ -1,4 +1,4 @@
-" vim:set ft=vim ts=4 sw=4 sts=4 sta ai bs=2:
+" vim:set ft=vim ts=4 sts=4 sw=4 sta noet ai si bs=2:
 
 " Color Scheme 설정
 if has("unix")
@@ -88,10 +88,12 @@ set exrc
 
 
 " C 파일의 형태를 지정해 주는 ktdc..
-ab ktdc /* vim:set ft=c ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
+ab ktdc /* vim:set ft=c ts=4 sts=4 sw=4 sta noet ai si cin bs=2: */
+"ab ktdc /* vim:set ft=c ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
 
 " CPP 파일의 형태를 지정해 주는 ktdcpp..
-ab ktdcpp /* vim:set ft=cpp ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
+ab ktdcpp /* vim:set ft=cpp ts=4 sts=4 sw=4 sta noet ai si cin bs=2: */
+"ab ktdcpp /* vim:set ft=cpp ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
 
 
 " Moin 파일의 형태를 지정해 주는 ktdcpp..
@@ -111,10 +113,12 @@ ab ktddb <!-- vim:set ft=docbkxml ts=8 sts=2 sw=2 sta et ai si bs=2: -->
 
 
 " shell script를 위한 ktdsh
-ab ktdsh ## vim:set ft=sh ts=8 sts=4 sw=4 sta et ai si bs=2:
+ab ktdsh ## vim:set ft=sh ts=4 sts=4 sw=4 sta noet ai si bs=2:
+"ab ktdsh ## vim:set ft=sh ts=8 sts=4 sw=4 sta et ai si bs=2:
 
 " .proto 파일을 위한 ktdsh
-ab ktdproto // vim:set ft=proto ts=8 sts=4 sw=4 sta et ai si cin bs=2:
+ab ktdproto // vim:set ft=proto ts=4 sts=4 sw=4 sta noet ai si cin bs=2:
+"ab ktdproto // vim:set ft=proto ts=8 sts=4 sw=4 sta et ai si cin bs=2:
 
 
 "vim에서 에러발생시 beep 대신에 Visual한 경고표시를 해주는 옵션.
@@ -185,9 +189,10 @@ endif
 set nonu
 
 
-" python 스트립트 파일을 위해 정의함.
-au BufNewFile *.py,*.pyw set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent backspace=2
-au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent cindent backspace=2
+" python 스트립트, c 소스 파일을 위해 정의함.
+au BufNewFile,BufRead *.py,*.pyw set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent backspace=2
+au BufNewFile,BufRead *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=4 shiftwidth=4 smarttab noexpandtab autoindent smartindent cindent backspace=2
+"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent cindent backspace=2
 augroup filetype
   au! BufNewFile,BufRead *.proto setfiletype proto
 augroup end
