@@ -194,10 +194,20 @@ endif
 set nonu
 
 
-" python 스트립트, c 소스 파일을 위해 정의함.
-au BufNewFile,BufRead *.py,*.pyw set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent backspace=2
-au BufNewFile,BufRead *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=4 shiftwidth=4 smarttab noexpandtab autoindent smartindent cindent backspace=2
-"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent cindent backspace=2
+"" python 스트립트, space 4 설정
+au BufNewFile *.py,*.pyw set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent backspace=2
+"au BufRead *.py,*.pyw set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent backspace=2
+
+
+"" c,cpp 소스 파일, tab4 설정
+"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=4 shiftwidth=4 smarttab noexpandtab autoindent smartindent cindent backspace=2
+"au BufRead *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=4 shiftwidth=4 smarttab noexpandtab autoindent smartindent cindent backspace=2
+
+"" c,cpp 소스 파일, space4 설정
+au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent cindent backspace=2
+"au BufRead *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent cindent backspace=2
+
+
 augroup filetype
   au! BufNewFile,BufRead *.proto setfiletype proto
 augroup end
