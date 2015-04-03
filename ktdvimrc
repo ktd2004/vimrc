@@ -88,12 +88,12 @@ set exrc
 
 
 " C 파일의 형태를 지정해 주는 ktdc..
-"ab ktdc /* vim:set ft=c ts=4 sts=4 sw=4 sta noet ai si cin bs=2: */
-ab ktdc /* vim:set ft=c ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
+ab ktdc /* vim:set ft=c ts=4 sts=4 sw=4 sta noet ai si cin bs=2: */
+"ab ktdc /* vim:set ft=c ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
 
 " CPP 파일의 형태를 지정해 주는 ktdcpp..
-"ab ktdcpp /* vim:set ft=cpp ts=4 sts=4 sw=4 sta noet ai si cin bs=2: */
-ab ktdcpp /* vim:set ft=cpp ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
+ab ktdcpp /* vim:set ft=cpp ts=4 sts=4 sw=4 sta noet ai si cin bs=2: */
+"ab ktdcpp /* vim:set ft=cpp ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
 
 
 " Moin 파일의 형태를 지정해 주는 ktdcpp..
@@ -200,11 +200,11 @@ au BufNewFile *.py,*.pyw set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expan
 
 
 "" c,cpp 소스 파일, tab4 설정
-"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=4 shiftwidth=4 smarttab noexpandtab autoindent smartindent cindent backspace=2
+au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=4 shiftwidth=4 smarttab noexpandtab autoindent smartindent cindent backspace=2
 "au BufRead *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=4 shiftwidth=4 smarttab noexpandtab autoindent smartindent cindent backspace=2
 
 "" c,cpp 소스 파일, space4 설정
-au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent cindent backspace=2
+"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent cindent backspace=2
 "au BufRead *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent cindent backspace=2
 
 
