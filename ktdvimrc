@@ -1,36 +1,25 @@
-" vim:set ft=vim ts=4 sts=4 sw=4 sta noet ai si bs=2:
-
-" Color Scheme 설정
-if has("unix")
-	colorscheme ron
-else
-	if has("gui_running")
-		colorscheme pablo
-	else
-		colorscheme ron
-	endif
-endif
+" vim:set ft=vim ts=8 sts=4 sw=4 et ai si bs=2:
 
 
 " gui_win32에서 시스템 폰트/창크기/단축키를 설정한다.
 if has("gui_win32")
-	" 윈도우에서 한글 이름의 font를 제대로 load하기 위해서
-	" cp949 encoding의 font용 vimrc 파일을 load하도록 함
-	so $VIM/ktdvimrc_font
+    " 윈도우에서 한글 이름의 font를 제대로 load하기 위해서
+    " cp949 encoding의 font용 vimrc 파일을 load하도록 함
+    so $VIM/ktdvimrc_font
 
-	set lines=80
+    set lines=80
 
-	" 시스템 메뉴를 동작시키는 맵핑.
-	map <C-k> :simalt ~x<CR>	"최대화 시키는 맵핑
-	map <C-j> :simalt ~r<CR>	"원래대로 복구하는 맵핑
+    " 시스템 메뉴를 동작시키는 맵핑.
+    map <C-k> :simalt ~x<CR>	"최대화 시키는 맵핑
+    map <C-j> :simalt ~r<CR>	"원래대로 복구하는 맵핑
 endif
 
 
 "초기에 파일 포맷을 도스로 설정.
 if has("unix")
-	set fileformat=unix
+    set fileformat=unix
 else	" has("gui_win32")
-	set fileformat=dos
+    set fileformat=dos
 endif
 
 
@@ -45,9 +34,9 @@ set title
 "m : menu bar
 "t : tearoff menu
 if has("unix")
-	set guioptions=grLt
+    set guioptions=grLt
 elseif has("gui_win32")
-	set guioptions=grLt
+    set guioptions=grLt
 endif
 
 
@@ -88,42 +77,40 @@ set exrc
 
 
 " C 파일의 형태를 지정해 주는 ktdc..
-ab ktdc /* vim:set ft=c ts=4 sts=4 sw=4 sta noet ai si cin bs=2: */
-"ab ktdc /* vim:set ft=c ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
+ab ktdc /* vim:set ft=c ts=8 sts=4 sw=4 et ai si cin bs=2: */
 
 " CPP 파일의 형태를 지정해 주는 ktdcpp..
-ab ktdcpp /* vim:set ft=cpp ts=4 sts=4 sw=4 sta noet ai si cin bs=2: */
-"ab ktdcpp /* vim:set ft=cpp ts=8 sts=4 sw=4 sta et ai si cin bs=2: */
+ab ktdcpp /* vim:set ft=cpp ts=8 sts=4 sw=4 et ai si cin bs=2: */
 
 
 " Moin 파일의 형태를 지정해 주는 ktdcpp..
 "ab ktdmoin ## vim:set ft=moin ts=4 sts=2 sw=2 sta et ai si bs=2 tw=0:
-ab ktdmoin ## vim:set ft=moin ts=8 sts=2 sw=2 sta et ai si bs=2 tw=0:
+ab ktdmoin ## vim:set ft=moin ts=8 sts=2 sw=2 et ai si bs=2 tw=0:
 
 " XML 파일의 형태를 지정해 주는 ktdxml ....
 "ab ktdxml <!-- vim:set ft=xml ts=4 sts=2 sw=2 sta et ai si bs=2: -->
-ab ktdxml <!-- vim:set ft=xml ts=8 sts=2 sw=2 sta et ai si bs=2: -->
+ab ktdxml <!-- vim:set ft=xml ts=8 sts=2 sw=2 et ai si bs=2: -->
 
 " XML 파일의 형태를 지정해 주는 ktdxml ....
 "ab ktdhtml <!-- vim:set ft=html ts=4 sts=2 sw=2 sta et ai si bs=2: -->
-ab ktdhtml <!-- vim:set ft=html ts=8 sts=2 sw=2 sta et ai si bs=2: -->
+ab ktdhtml <!-- vim:set ft=html ts=8 sts=2 sw=2 et ai si bs=2: -->
 
 " XSL 파일의 형태를 지정해 주는 ktdxslt
 "ab ktdxslt <!-- vim:set ft=xslt ts=4 sts=2 sw=2 sta et ai si bs=2: -->
-ab ktdxslt <!-- vim:set ft=xslt ts=8 sts=2 sw=2 sta et ai si bs=2: -->
+ab ktdxslt <!-- vim:set ft=xslt ts=8 sts=2 sw=2 et ai si bs=2: -->
 
 " DocBook 문서를 위한 ktddk
 "ab ktddb <!-- vim:set ft=docbkxml ts=4 sts=2 sw=2 sta et ai si bs=2: -->
-ab ktddb <!-- vim:set ft=docbkxml ts=8 sts=2 sw=2 sta et ai si bs=2: -->
+ab ktddb <!-- vim:set ft=docbkxml ts=8 sts=2 sw=2 et ai si bs=2: -->
 
 
 " shell script를 위한 ktdsh
 "ab ktdsh ## vim:set ft=sh ts=4 sts=4 sw=4 sta noet ai si bs=2:
-ab ktdsh ## vim:set ft=sh ts=8 sts=4 sw=4 sta et ai si bs=2:
+ab ktdsh ## vim:set ft=sh ts=8 sts=4 sw=4 et ai si bs=2:
 
 " .proto 파일을 위한 ktdsh
 "ab ktdproto // vim:set ft=proto ts=4 sts=4 sw=4 sta noet ai si cin bs=2:
-ab ktdproto // vim:set ft=proto ts=8 sts=4 sw=4 sta et ai si cin bs=2:
+ab ktdproto // vim:set ft=proto ts=8 sts=4 sw=4 et ai si cin bs=2:
 
 
 "vim에서 에러발생시 beep 대신에 Visual한 경고표시를 해주는 옵션.
@@ -132,23 +119,25 @@ set visualbell
 
 "끝에 '~'가 붙은 backup파일을 생성하지 않도록 하는 옵션.
 "특별히 backup 파일이 필요한 경우가 없었던 것 같다.
-set nobackup
+"set nobackup
+set backupdir=$TEMP,$TMP,.
+set undodir=$TEMP,$TMP,.
 
 
 "bdir : Backup Directory 설정. xxx~ 파일을 저장하기 위한 디렉토리.
 "dir : swap Directory 설정. xxx.swp 파일을 저장하기 위한 디렉토리.
 if has("unix")
-	set bdir=.,~,~/tmp,$TEMP,$TMP
-	set dir=.,~,~/tmp,$TEMP,$TMP
+    set bdir=.,~,~/tmp,$TEMP,$TMP
+    set dir=.,~,~/tmp,$TEMP,$TMP
 else
-	" backup 파일인 xxx~ 파일이 현재 디렉토리에 생성되니까 보기싫다.
-	" 현재 디렉토리를 bdir 리스트에서 제거했음.
-	set bdir=c:/tmp,c:/temp,$TEMP,$TMP
+    " backup 파일인 xxx~ 파일이 현재 디렉토리에 생성되니까 보기싫다.
+    " 현재 디렉토리를 bdir 리스트에서 제거했음.
+    set bdir=c:/tmp,c:/temp,$TEMP,$TMP
 
-	" swap 파일을 생성하는 dir 리스트에서 현재 디렉토리를 제거했음.
-	" 윈도우에서 사용할 때 탐색기에 '*.swp'파일이 생성되었다가 사라지면서
-	" "context menu" 창이 닫겨버리는 문제가 있어서 더욱 더 필요없을 것 같다.
-	set dir=c:/tmp,c:/temp,$TEMP,$TMP
+    " swap 파일을 생성하는 dir 리스트에서 현재 디렉토리를 제거했음.
+    " 윈도우에서 사용할 때 탐색기에 '*.swp'파일이 생성되었다가 사라지면서
+    " "context menu" 창이 닫겨버리는 문제가 있어서 더욱 더 필요없을 것 같다.
+    set dir=c:/tmp,c:/temp,$TEMP,$TMP
 endif
 
 
@@ -160,11 +149,11 @@ endif
 "au BufWinEnter *.c,*.cc,*.h,*.html,*.php,Makefile.*.mak silent loadview
 "------------------------------------------------------------------------
 if has("autocmd")
-	" When editing a file, always jump to the last cursor position
-	autocmd BufReadPost *
-		\ if line("'\"") > 0 && line ("'\"") <= line("$") |
-		\ exe "normal g'\"" |
-		\ endif
+    " When editing a file, always jump to the last cursor position
+    autocmd BufReadPost *
+                \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+                \ exe "normal g'\"" |
+                \ endif
 endif
 
 
@@ -179,14 +168,14 @@ set pastetoggle=<ins>
 "subversion의 diff 모드에서 사용하기위해서 설정했음.
 "참고 : http://www.vim.org/tips/tip.php?tip_id=88
 if has("gui_win32") && &diff
-	au GUIEnter * simalt ~x
+    au GUIEnter * simalt ~x
 endif
 
 
 "gui_win32일 때 Alt_Space 키가 시스템 메뉴로 동작하도록 한다.
 "참고 : http://www.vim.org/tips/tip.php?tip_id=645
 if has("gui_win32")
-	set winaltkeys=yes 
+    set winaltkeys=yes 
 endif
 
 
@@ -195,58 +184,54 @@ set nonu
 
 
 "" python 스트립트, space 4 설정
-au BufNewFile *.py,*.pyw set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent backspace=2
-"au BufRead *.py,*.pyw set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent backspace=2
+au BufNewFile *.py,*.pyw set tabstop=8 softtabstop=4 shiftwidth=4 expandtab autoindent smartindent backspace=2
 
 
 "" c,cpp 소스 파일, tab4 설정
-au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=4 shiftwidth=4 smarttab noexpandtab autoindent smartindent cindent backspace=2
-"au BufRead *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=4 shiftwidth=4 smarttab noexpandtab autoindent smartindent cindent backspace=2
-
-"" c,cpp 소스 파일, space4 설정
-"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent cindent backspace=2
-"au BufRead *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 smarttab expandtab autoindent smartindent cindent backspace=2
+"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=2 shiftwidth=2 expandtab autoindent smartindent cindent backspace=2
+au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 expandtab autoindent smartindent cindent backspace=2
+"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab autoindent smartindent cindent backspace=2
 
 
 augroup filetype
-  au! BufNewFile,BufRead *.proto setfiletype proto
+    au! BufNewFile,BufRead *.proto setfiletype proto
 augroup end
 
 
 
 if tolower(v:lang) =~ "^ko"
-	if !has("unix")
-		set encoding=cp949
-		set fileencodings=ucs-bom,utf-8,cp949,latin1
-		setglobal fileencoding=utf-8
-	else
-		if tolower(v:lang) =~ "utf8$" || tolower(v:lang) =~ "utf-8$"
-			set encoding=utf-8
-			set fileencodings=ucs-bom,utf-8,euc-kr,latin1
-			setglobal fileencoding=utf-8
-		else
-			set encoding=euc-kr
-			set fileencodings=euc-kr,ucs-bom,utf-8,latin1
-			setglobal fileencoding=euc-kr
-		endif
-	endif
-	set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*
+    if !has("unix")
+        set encoding=cp949
+        set fileencodings=ucs-bom,utf-8,cp949,latin1
+        setglobal fileencoding=utf-8
+    else
+        if tolower(v:lang) =~ "utf8$" || tolower(v:lang) =~ "utf-8$"
+            set encoding=utf-8
+            set fileencodings=ucs-bom,utf-8,euc-kr,latin1
+            setglobal fileencoding=utf-8
+        else
+            set encoding=euc-kr
+            set fileencodings=euc-kr,ucs-bom,utf-8,latin1
+            setglobal fileencoding=euc-kr
+        endif
+    endif
+    set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*
 elseif v:lang =~ "^ja_JP"
-	set fileencodings=euc-jp
-	set guifontset=-misc-fixed-medium-r-normal--14-*-*-*-*-*-*-*
+    set fileencodings=euc-jp
+    set guifontset=-misc-fixed-medium-r-normal--14-*-*-*-*-*-*-*
 elseif v:lang =~ "^zh_TW"
-	set fileencodings=big5
-	set guifontset=-sony-fixed-medium-r-normal--16-150-75-75-c-80-iso8859-1,-taipei-fixed-medium-r-normal--16-150-75-75-c-160-big5-0
+    set fileencodings=big5
+    set guifontset=-sony-fixed-medium-r-normal--16-150-75-75-c-80-iso8859-1,-taipei-fixed-medium-r-normal--16-150-75-75-c-160-big5-0
 elseif v:lang =~ "^zh_CN"
-	set fileencodings=gb2312
-	set guifontset=*-r-*
+    set fileencodings=gb2312
+    set guifontset=*-r-*
 endif
 
 
 if tolower(v:lang) =~ "utf8$" || tolower(v:lang) =~ "utf-8$"
-	set termencoding=utf-8
+    set termencoding=utf-8
 else
-	set termencoding=cp949
+    set termencoding=cp949
 endif
 
 
@@ -282,7 +267,7 @@ set tags=./tags;,./TAGS;,tags;,TAGS;
 set nocp
 filetype plugin on
 if has("unix")
-	set tags+=/usr/include/tags
+    set tags+=/usr/include/tags
 endif
 
 

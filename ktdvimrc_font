@@ -7,4 +7,6 @@
 
 
 "set guifont=±¼¸²Ã¼:h10:cHANGEUL
-set guifont=³ª´®°íµñÄÚµù:h10:b:cHANGEUL
+"set guifont=³ª´®°íµñÄÚµù:h10:b:cHANGEUL
+set guifont=D2Coding:h10:b:cHANGEUL
+set guifontwide=D2Coding:h10:b:cHANGEUL

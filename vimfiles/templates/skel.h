@@ -1,5 +1,5 @@
-/* vim:set ft=cpp ts=4 sw=4 sts=4 sta ai si cin bs=2 noet: */
-/* vim:set ft=c ts=4 sw=4 sts=4 sta ai si cin bs=2 noet: */
+/* vim:set ft=cpp ts=8 sw=4 sts=4 et ai si cin bs=2: */
+/* vim:set ft=c ts=8 sw=4 sts=4 et ai si cin bs=2: */
 /**
  * \file
  * \brief
