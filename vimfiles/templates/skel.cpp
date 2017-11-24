@@ -23,14 +23,14 @@ namespace @FILE@ {
 namespace {
 
 
-}	// namespace unnamed
+}   // namespace unnamed
 
 
-}	// namespace @FILE@
+}   // namespace @FILE@
 
 
 
 int main(int /* argc */, char** /* argv */)
 {
-	return 0;
+    return 0;
 }

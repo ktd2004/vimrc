@@ -14,8 +14,8 @@
  * \todo
  **/
 #ifndef @INCLUDE_GAURD@
-#define @INCLUDE_GAURD@	1
+#define @INCLUDE_GAURD@ 1
 
 
 
-#endif	/* ifndef @INCLUDE_GAURD@ */
+#endif  /* ifndef @INCLUDE_GAURD@ */

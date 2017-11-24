@@ -15,13 +15,13 @@
  * \todo
  **/
 #ifndef @INCLUDE_GAURD@
-#define @INCLUDE_GAURD@	1
+#define @INCLUDE_GAURD@ 1
 
 
 
 /* for c++ */
 namespace @FILE@ {
-}	// namespace @FILE@
+}   // namespace @FILE@
 
 
 
@@ -35,4 +35,4 @@ extern "C" {
 
 
 
-#endif	/* ifndef @INCLUDE_GAURD@ */
+#endif  /* ifndef @INCLUDE_GAURD@ */
