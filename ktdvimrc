@@ -1,4 +1,4 @@
-" vim:set ft=vim ts=8 sts=4 sw=4 et ai si bs=2:
+" vim:set ft=vim sts=4 sw=4 et ai si bs=2:
 
 
 " gui_win32에서 시스템 폰트/창크기/단축키를 설정한다.
@@ -77,36 +77,36 @@ set exrc
 
 
 " C 파일의 형태를 지정해 주는 ktdc..
-ab ktdc /* vim:set ft=c ts=8 sts=4 sw=4 et ai si cin bs=2: */
+ab ktdc /* vim:set ft=c sts=4 sw=4 et ai si cin bs=2: */
 
 " CPP 파일의 형태를 지정해 주는 ktdcpp..
-ab ktdcpp /* vim:set ft=cpp ts=8 sts=4 sw=4 et ai si cin bs=2: */
+ab ktdcpp /* vim:set ft=cpp sts=4 sw=4 et ai si cin bs=2: */
 
 " make 파일의 형태를 지정해 주는 ktdmake..
-ab ktdmake ## vim:set ft=make ts=8 sts=8 sw=8 noet ai si bs=2:
+ab ktdmake ## vim:set ft=make noet ai si bs=2:
 
 
 " Moin 파일의 형태를 지정해 주는 ktdcpp..
-ab ktdmoin ## vim:set ft=moin ts=8 sts=2 sw=2 et ai si bs=2 tw=0:
+ab ktdmoin ## vim:set ft=moin sts=2 sw=2 et ai si bs=2 tw=0:
 
 " XML 파일의 형태를 지정해 주는 ktdxml ....
-ab ktdxml <!-- vim:set ft=xml ts=8 sts=2 sw=2 et ai si bs=2: -->
+ab ktdxml <!-- vim:set ft=xml sts=2 sw=2 et ai si bs=2: -->
 
 " XML 파일의 형태를 지정해 주는 ktdxml ....
-ab ktdhtml <!-- vim:set ft=html ts=8 sts=2 sw=2 et ai si bs=2: -->
+ab ktdhtml <!-- vim:set ft=html sts=2 sw=2 et ai si bs=2: -->
 
 " XSL 파일의 형태를 지정해 주는 ktdxslt
-ab ktdxslt <!-- vim:set ft=xslt ts=8 sts=2 sw=2 et ai si bs=2: -->
+ab ktdxslt <!-- vim:set ft=xslt sts=2 sw=2 et ai si bs=2: -->
 
 " DocBook 문서를 위한 ktddk
-ab ktddb <!-- vim:set ft=docbkxml ts=8 sts=2 sw=2 et ai si bs=2: -->
+ab ktddb <!-- vim:set ft=docbkxml sts=2 sw=2 et ai si bs=2: -->
 
 
 " shell script를 위한 ktdsh
-ab ktdsh ## vim:set ft=sh ts=8 sts=4 sw=4 et ai si bs=2:
+ab ktdsh ## vim:set ft=sh sts=4 sw=4 et ai si bs=2:
 
 " .proto 파일을 위한 ktdsh
-ab ktdproto // vim:set ft=proto ts=8 sts=4 sw=4 et ai si cin bs=2:
+ab ktdproto // vim:set ft=proto sts=4 sw=4 et ai si cin bs=2:
 
 
 "vim에서 에러발생시 beep 대신에 Visual한 경고표시를 해주는 옵션.
@@ -180,13 +180,13 @@ set nonu
 
 
 "" python 스트립트, space 4 설정
-au BufNewFile *.py,*.pyw set tabstop=8 softtabstop=4 shiftwidth=4 expandtab autoindent smartindent backspace=2
+au BufNewFile *.py,*.pyw set softtabstop=4 shiftwidth=4 expandtab autoindent smartindent backspace=2
 
 
 "" c,cpp 소스 파일, tab4 설정
-"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=2 shiftwidth=2 expandtab autoindent smartindent cindent backspace=2
-au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=4 shiftwidth=4 expandtab autoindent smartindent cindent backspace=2
-"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab autoindent smartindent cindent backspace=2
+"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set softtabstop=2 shiftwidth=2 expandtab autoindent smartindent cindent backspace=2
+au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set softtabstop=4 shiftwidth=4 expandtab autoindent smartindent cindent backspace=2
+"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set softtabstop=8 shiftwidth=8 noexpandtab autoindent smartindent cindent backspace=2
 
 
 augroup filetype

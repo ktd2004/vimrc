@@ -1,4 +1,4 @@
-/* vim:set ft=c ts=8 sts=4 sw=4 et ai si cin bs=2: */
+/* vim:set ft=c sts=4 sw=4 et ai si cin bs=2: */
 /**
  * \file
  * \brief

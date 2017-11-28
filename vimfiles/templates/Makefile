@@ -1,4 +1,4 @@
-## vim:set ft=make ts=8 sts=8 sw=8 noet ai si bs=2:
+## vim:set ft=make noet ai si bs=2:
 
 ## file
 ## brief
