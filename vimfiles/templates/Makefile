@@ -1,5 +1,3 @@
-## vim:set ft=make noet ai si bs=2:
-
 ## file
 ## brief
 ## details

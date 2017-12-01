@@ -288,6 +288,10 @@ set mouse=a
 let g:neocomplcache_enable_at_startup = 1
 
 
+au BufNewFile,BufRead * set ts=4 sts=4 sw=4 et ai si bs=2
+au BufNewFile,BufRead Makefile set ts=8 sts=8 sw=8 noet
+au BufNewFile,BufRead *.c,*.cc,*.cpp,*.cxx,*.h,*.hh,*.hpp set cin
+
 
 filetype plugin indent on
 "syntax enable
