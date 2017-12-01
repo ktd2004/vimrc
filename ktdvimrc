@@ -179,16 +179,6 @@ endif
 set nonu
 
 
-"" python 스트립트, space 4 설정
-au BufNewFile *.py,*.pyw set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent smartindent backspace=2
-
-
-"" c,cpp 소스 파일, tab4 설정
-"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=2 shiftwidth=2 expandtab autoindent smartindent cindent backspace=2
-au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent smartindent cindent backspace=2
-"au BufNewFile *.c,*.cpp,*.cc,*.h,*.hh,*.hpp set tabstop=4 softtabstop=8 shiftwidth=8 noexpandtab autoindent smartindent cindent backspace=2
-
-
 augroup filetype
     au! BufNewFile,BufRead *.proto setfiletype proto
 augroup end
