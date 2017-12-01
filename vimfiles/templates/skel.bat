@@ -1,4 +1,4 @@
-rem vim:set ft=dosbatch sts=4 sw=4 et ai si bs=2:
+rem vim:set ft=dosbatch ts=4 sts=4 sw=4 et ai si bs=2:
 @echo off
 
 rem file
