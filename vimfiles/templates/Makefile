@@ -207,7 +207,7 @@ doc :
 
 
 
-## unit test를 수행한다.
+## Run unittest
 unittest :
 	@TEST_DIR=`find . -type d -name "unittest" -print`; \
 	for tdir in $${TEST_DIR}; do $(MAKE) -C $${tdir} || exit 1; done;  \
